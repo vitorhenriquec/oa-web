@@ -8,33 +8,30 @@ export default function ListaArtigos(props) {
     setArtigos(props.artigos);
   });
 
-  return artigos.map((artigo) => {
-    return (
-      <ul
-        key={sha1(artigo.titulo)}
-        className="list-unstyled border-none text-justify"
-      >
-        <div className="mb-3">
-          <a
-            data-toggle="collapse"
-            href={"#" + sha1(artigo.titulo)}
-            role="button"
-            aria-expanded="false"
-            aria-controls={sha1(artigo.titulo)}
-          >
-            <li className="border-none bg-light p-3 shadow text-uppercase">
-              <i className="fa fa-book-open fa-lg mr-2 ml-1 text-primary"></i>
-              {artigo.titulo}
-            </li>
-          </a>
-          <div className="collapse" id={sha1(artigo.titulo)}>
-            <div className="card card-body shadow rounded-0">
-              <div className="d-block p-2">
-                <span>Autor(es): {artigo.autores}</span>
-                <p>Resumo: {artigo.resumo}</p>
-                <span>
-                  <p>
-                    Texto completo disponível
+  return (
+    <ul className="list-unstyled border-none text-justify">
+      {artigos.map((artigo) => {
+        return (
+          <div className="mb-3">
+            <a
+              data-toggle="collapse"
+              href={"#" + sha1(artigo.titulo)}
+              role="button"
+              aria-expanded="false"
+              aria-controls={sha1(artigo.titulo)}
+            >
+              <li className="border-none bg-light p-3 shadow text-uppercase">
+                <i className="fa fa-book-open fa-lg mr-2 ml-1 text-primary"></i>
+                {artigo.titulo}
+              </li>
+            </a>
+            <div className="collapse" id={sha1(artigo.titulo)}>
+              <div className="card card-body shadow rounded-0">
+                <div className="d-block p-2">
+                  <span>Autor(es): {artigo.autores}</span>
+                  <p>Resumo: {artigo.resumo}</p>
+                  <span>
+                    Artigo disponível{" "}
                     <a
                       className="text-primary"
                       target="_blank"
@@ -44,13 +41,13 @@ export default function ListaArtigos(props) {
                       aqui
                     </a>
                     .
-                  </p>
-                </span>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </ul>
-    );
-  });
+        );
+      })}
+    </ul>
+  );
 }
