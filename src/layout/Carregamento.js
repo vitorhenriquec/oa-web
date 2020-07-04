@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function Carregamento(props) {
-  const [ativo, setAtivo] = useState(props.ativo);
+  const ativo = props.ativo;
 
   // useEffect(() => {
   //   setAtivo(!ativo);
