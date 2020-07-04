@@ -32,3 +32,27 @@ a:hover {
   background-image: url("./recursos/img/bg.jpeg");
   min-height: 100vh;
 }
+
+.overlay {
+  padding-top: 2%;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.overlay > i {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.w-70 {
+  width: 70% !important;
+}
