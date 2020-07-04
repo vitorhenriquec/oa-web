@@ -34,7 +34,7 @@ export default function Equipe() {
     <div className="text-center">
       <h1 className="pt-4">Equipe</h1>
       <div className="dadosEquipe row w-75 ml-auto mr-auto">
-        <Carregamento ativo={carregando} />
+        {carregando && <Carregamento />}
         {equipe.map((membro, idx) => {
           return (
             <div key={idx} className="col-12 col-sm-3 text-center">

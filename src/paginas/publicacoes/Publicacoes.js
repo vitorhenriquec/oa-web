@@ -43,8 +43,8 @@ export default function Publicacoes() {
           });
         }
       }
-      setPublicacoes(publicacoes);
       setCarregando(false);
+      setPublicacoes(publicacoes);
     });
   });
 
@@ -65,7 +65,7 @@ export default function Publicacoes() {
       </ul>
       <div className="tab-content p-4 text-justify">
         <div id="artigos" className="tab-pane active">
-          <Carregamento ativo={carregando} />
+          {carregando && <Carregamento />}
           {Object.keys(publicacoes).map((ano) => {
             return (
               <div key={ano}>
