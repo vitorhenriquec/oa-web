@@ -56,3 +56,9 @@ a:hover {
 .w-70 {
   width: 70% !important;
 }
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: white;
+  background-color: #2196f3 !important;
+}
