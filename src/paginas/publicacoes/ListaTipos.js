@@ -6,7 +6,7 @@ export default function ListaTipos(props) {
 
   useEffect(() => {
     setArtigoTipos(props.artigoTipos);
-  });
+  }, [props.artigoTipos]);
 
   return Object.keys(artigoTipos).map((tipo) => {
     return (

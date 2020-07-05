@@ -8,32 +8,32 @@ export default function MenuLateral() {
       <ul className="list-unstyled components">
         <li>
           <NavLink to="/">
-            <i className="fa fa-home fa-lg ml-1 mr-1"></i>Inicio
+            <i className="fa fa-home fa-lg mr-1"></i>Inicio
             <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
           </NavLink>
         </li>
         <li>
           <NavLink to="/sobre">
-            <i className="fa fa-info fa-lg ml-1 mr-1"></i> Sobre
+            <i className="fa fa-info fa-lg"></i> Sobre
             <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
           </NavLink>
         </li>
         <li>
           <NavLink to="/equipe">
-            <i className="fa fa-user-friends fa-lg ml-1 mr-1"></i> Equipe
+            <i className="fa fa-user-friends fa-lg mr-1"></i> Equipe
             <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
           </NavLink>
         </li>
         <li>
           <NavLink to="/publicacoes">
-            <i className="fa fa-journal-whills fa-lg ml-1 mr-1"></i>
+            <i className="fa fa-journal-whills fa-lg mr-1"></i>
             <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
             Publicações
           </NavLink>
         </li>
         <li>
           <NavLink to="/manual">
-            <i className="fa fa-book fa-lg ml-1 mr-1"></i> Manual
+            <i className="fa fa-book fa-lg mr-1"></i> Manual
             <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
           </NavLink>
         </li>

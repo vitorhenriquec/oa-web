@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export default function Carregamento() {
   return (
-    <div class="overlay">
-      <i class="fa fa-spinner fa-pulse fa-lg"></i>
+    <div className="overlay">
+      <i className="fa fa-spinner fa-pulse fa-lg"></i>
     </div>
   );
 }

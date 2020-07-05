@@ -5,7 +5,6 @@ export default function Cabecalho() {
   const [menuAberto, setMenuAberto] = useState(true);
 
   useEffect(() => {
-    console.log(menuAberto);
     if (!menuAberto) {
       document.getElementById("menuLateral").classList.add("active");
     } else {

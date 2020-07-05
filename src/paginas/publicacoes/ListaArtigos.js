@@ -6,13 +6,13 @@ export default function ListaArtigos(props) {
 
   useEffect(() => {
     setArtigos(props.artigos);
-  });
+  }, [props.artigos]);
 
   return (
     <ul className="list-unstyled border-none text-justify">
       {artigos.map((artigo) => {
         return (
-          <div className="mb-3">
+          <div key={sha1(artigo.titulo)} className="mb-3">
             <a
               data-toggle="collapse"
               href={"#" + sha1(artigo.titulo)}
