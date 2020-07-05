@@ -49,37 +49,20 @@ export default function Publicacoes() {
   });
 
   return (
-    <div className="text-center mr-auto ml-auto w-95 bg-transparent">
+    <div className="text-center mr-auto ml-auto w-95">
       <h1 className="pt-4 pb-2">Publicações</h1>
-      <ul className="nav nav-pills ml-4">
-        <li className="nav-item">
-          <a className="nav-link active" data-toggle="pill" href="#artigos">
-            <i className="fa fa-book-open fa-lg"></i> Artigos
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" data-toggle="pill" href="#planosPublicados">
-            <i className="fa fa-file-alt fa-lg"></i> Plano de Aula
-          </a>
-        </li>
-      </ul>
-      <div className="tab-content p-4 text-justify">
-        <div id="artigos" className="tab-pane active">
-          {carregando && <Carregamento />}
-          {Object.keys(publicacoes).map((ano) => {
-            return (
-              <div key={ano}>
-                <h5>
-                  <i className="fa fa-calendar fa-lg"></i> {ano}
-                </h5>
-                <ListaTipos artigoTipos={publicacoes[ano]} />
-              </div>
-            );
-          })}
-        </div>
-        <div id="planosPublicados" className="tab-pane fade">
-          <h1>Ar</h1>
-        </div>
+      <div className="p-4 text-justify">
+        {carregando && <Carregamento />}
+        {Object.keys(publicacoes).map((ano) => {
+          return (
+            <div key={ano}>
+              <h5>
+                <i className="fa fa-calendar fa-lg"></i> {ano}
+              </h5>
+              <ListaTipos artigoTipos={publicacoes[ano]} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ export default function ListaArtigos(props) {
 
   return (
     <ul className="list-unstyled border-none text-justify">
-      {artigos.map((artigo) => {
+      {artigos.map((artigo, indice) => {
         return (
           <div key={sha1(artigo.titulo)} className="mb-3">
             <a

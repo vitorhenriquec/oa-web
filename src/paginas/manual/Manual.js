@@ -8,7 +8,7 @@ import CriarPlano from "./CriarPlano";
 
 export default function Manual() {
   return (
-    <div className="text-center mr-auto ml-auto w-95 bg-transparent rounded">
+    <div className="text-center mr-auto ml-auto w-95">
       <h1 className="pt-4">Manual</h1>
       <ul
         id="listaManuais"

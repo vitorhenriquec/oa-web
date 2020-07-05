@@ -8,6 +8,7 @@ import Inicio from "./paginas/inicio/Inicio";
 import Sobre from "./paginas/sobre/Sobre";
 import Equipe from "./paginas/equipe/Equipe";
 import Publicacoes from "./paginas/publicacoes/Publicacoes";
+import PlanosPublicados from "./paginas/planos/PlanosPublicados";
 import Manual from "./paginas/manual/Manual";
 
 function App() {
@@ -27,6 +28,11 @@ function App() {
                   path="/publicacoes"
                   exact={true}
                   component={Publicacoes}
+                />
+                <Route
+                  path="/planos"
+                  exact={true}
+                  component={PlanosPublicados}
                 />
                 <Route path="/manual" exact={true} component={Manual} />
               </Switch>

@@ -26,9 +26,16 @@ export default function MenuLateral() {
         </li>
         <li>
           <NavLink to="/publicacoes">
-            <i className="fa fa-journal-whills fa-lg mr-1"></i>
-            <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
+            <i className="fa fa-book-open fa-lg mr-1"></i>
             Publicações
+            <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/planos">
+            <i className="fa fa-file-alt fa-lg mr-1"></i>
+            Planos Publicados
+            <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
           </NavLink>
         </li>
         <li>
