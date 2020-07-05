@@ -23,6 +23,10 @@
   font-size: larger;
 }
 
+#menuLateral ul li:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 #menuLateral ul li a span:hover {
   color: #fff;
 }
