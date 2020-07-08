@@ -28,7 +28,7 @@ export default function Equipe() {
       setCarregando(false);
       setEquipe(equipe);
     });
-  });
+  }, []);
 
   return (
     <div className="text-center">

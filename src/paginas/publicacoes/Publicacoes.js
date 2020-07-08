@@ -46,7 +46,7 @@ export default function Publicacoes() {
       setCarregando(false);
       setPublicacoes(publicacoes);
     });
-  });
+  }, []);
 
   return (
     <div className="text-center mr-auto ml-auto w-95">

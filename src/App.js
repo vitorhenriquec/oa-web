@@ -19,7 +19,11 @@ function App() {
           <MenuLateral />
           <div className=" container-fluid p-0">
             <Cabecalho />
-            <div className="conteudo p-3">
+            <div
+              className={
+                window.innerWidth < 414 ? "conteudo p-1" : "conteudo p-3"
+              }
+            >
               <Switch>
                 <Route path="/" exact={true} component={Inicio} />
                 <Route path="/sobre" exact={true} component={Sobre} />

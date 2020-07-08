@@ -59,9 +59,9 @@ export default function PlanosPublicados() {
             </tr>
           </thead>
           <tbody>
-            {planos.map((plano) => {
+            {planos.map((plano, index) => {
               return (
-                <tr className="m-3">
+                <tr key={index} className="m-3">
                   <td>{plano.titulo}</td>
                   <td>{plano.dataSubmissao}</td>
                   <td>{plano.autor}</td>
