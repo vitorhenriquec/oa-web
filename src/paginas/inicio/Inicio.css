@@ -1,0 +1,25 @@
+#buscarOA {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#buscarOA > .form-group > input {
+  width: 80%;
+  display: inline;
+}
+
+#buscarOa > .form-group > button {
+  height: calc(1.5em + 0.75rem + 1px);
+}
+
+@media (max-width: 414px) {
+  #buscarOA {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  #buscarOA > .form-group > input {
+    width: 85%;
+  }
+}

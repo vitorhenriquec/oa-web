@@ -1,0 +1,24 @@
+.videoSobre {
+  width: 580px;
+  height: 300px;
+}
+
+@media (max-width: 360px) {
+  .videoSobre {
+    width: 280px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 414px) {
+  .videoSobre {
+    width: 380px;
+  }
+}
+
+@media (max-width: 720px) {
+  .videoSobre {
+    width: 480px;
+    height: 200px;
+  }
+}
