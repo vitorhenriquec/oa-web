@@ -5,7 +5,7 @@ export default function Inicio() {
   return (
     <div className="text-center">
       <div className="pt-5">
-        <h1>OBA</h1>
+        <h1>OA</h1>
         <h6>Objetos de Aprendizagem</h6>
       </div>
       <form id="buscarOA" className="mt-5">

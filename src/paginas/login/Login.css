@@ -1,0 +1,30 @@
+#formLogin {
+  width: 40% !important;
+}
+
+@media (max-width: 1280px) {
+  #formLogin {
+    width: 50% !important;
+  }
+}
+
+@media (max-width: 992px) {
+  #formLogin {
+    width: 60% !important;
+  }
+}
+
+@media (max-width: 404px) {
+  #formLogin {
+    width: 80% !important;
+  }
+}
+
+#visibilidadeSenha {
+  display: flex;
+  position: relative;
+  z-index: 999;
+  top: -25px;
+  float: right;
+  margin-right: 1%;
+}

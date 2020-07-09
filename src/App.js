@@ -14,6 +14,7 @@ import Equipe from "./paginas/equipe/Equipe";
 import Publicacoes from "./paginas/publicacoes/Publicacoes";
 import PlanosPublicados from "./paginas/planos/PlanosPublicados";
 import Manual from "./paginas/manual/Manual";
+import Login from "./paginas/login/Login";
 
 function App() {
   //Armenar escolha no storage do navegador
@@ -57,6 +58,7 @@ function App() {
                   component={PlanosPublicados}
                 />
                 <Route path="/manual" exact={true} component={Manual} />
+                <Route path="/login" exact={true} component={Login} />
               </Switch>
             </div>
             {window.innerWidth > 908 && librasAtivo && itemAtual !== "" && (

@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import Contexto from "../AppContext";
 
 export default function Cabecalho() {
@@ -56,13 +57,13 @@ export default function Cabecalho() {
         >
           <i className="fa fa-bell fa-lg"></i>
         </button>
-        <button
+        <Link
+          to="/login"
           type="button"
-          className="btn btn-primary pt-2 pb-2"
-          title="Entrar"
+          className="btn btn-primary pt-2 pb-2 text-white"
         >
           <i className="fa fa-sign-in-alt fa-lg"></i> Entrar
-        </button>
+        </Link>
       </div>
     </div>
   );
