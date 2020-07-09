@@ -44,6 +44,10 @@ ul ul a {
   margin-left: -250px;
 }
 
+#secaoTelaCelular {
+  display: none;
+}
+
 @media (max-width: 414px) {
   #menuLateral {
     max-width: 100%;
@@ -60,7 +64,7 @@ ul ul a {
     -moz-transition: opacity 0.4s ease-out;
     -webkit-transition: opacity 0.4s ease-out;
   }
-  #cabecalhoMenuLateral {
+  #secaoTelaCelular {
     display: block;
   }
 }

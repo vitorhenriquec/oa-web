@@ -6,7 +6,7 @@ import "./MenuLateral.css";
 import Contexto from "../AppContext";
 
 export default function MenuLateral(props) {
-  const { setItemAtual } = useContext(Contexto);
+  const { setItemAtual, menuAberto, setMenuAberto } = useContext(Contexto);
   const abasMenus = [
     {
       denominacao: "Inicio",
@@ -47,6 +47,22 @@ export default function MenuLateral(props) {
   ];
   return (
     <nav id="menuLateral" className="bg-dark">
+      <div id="secaoTelaCelular" className="p-2">
+        <button
+          type="button"
+          title={menuAberto ? "Fechar menu lateral" : "Abrir menu lateral"}
+          className="btn btn-primary"
+          onClick={() => setMenuAberto(!menuAberto)}
+        >
+          <i
+            className={
+              menuAberto
+                ? "fa fa-times fa-lg pt-2 pb-2"
+                : "fa fa-bars fa-lg pt-2 pb-2"
+            }
+          ></i>
+        </button>
+      </div>
       <ul className="list-unstyled components">
         {abasMenus.map((aba, indice) => {
           return (
