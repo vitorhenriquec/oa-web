@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import sha1 from "sha1";
 
 export default function ListaArtigos(props) {
   const [artigos, setArtigos] = useState([]);
