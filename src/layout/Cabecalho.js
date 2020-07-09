@@ -15,7 +15,7 @@ export default function Cabecalho() {
   }, [menuAberto]);
 
   return (
-    <div className="w-100 p-3 bg-light m-0">
+    <div className="w-100 p-2 bg-light m-0">
       <button
         type="button"
         title={menuAberto ? "Fechar menu lateral" : "Abrir menu lateral"}
