@@ -1,70 +1,69 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+
 import "./MenuLateral.css";
 
-export default function MenuLateral() {
+import Contexto from "../AppContext";
+
+export default function MenuLateral(props) {
+  const { setItemAtual } = useContext(Contexto);
+  const abasMenus = [
+    {
+      denominacao: "Inicio",
+      icone: "fa-home",
+      link: "/",
+      identificador: "inicio",
+    },
+    {
+      denominacao: "Sobre",
+      icone: "fa-info",
+      link: "/sobre",
+      identificador: "sobre",
+    },
+    {
+      denominacao: "Equipe",
+      icone: "fa-user-friends",
+      link: "/equipe",
+      identificador: "equipe",
+    },
+    {
+      denominacao: "Publicações",
+      icone: "fa-book-open",
+      link: "/publicacoes",
+      identificador: "publicacoes",
+    },
+    {
+      denominacao: "Planos Publicados",
+      icone: "fa-file-alt",
+      link: "/planos",
+      identificador: "planos",
+    },
+    {
+      denominacao: "Manual",
+      icone: "fa-book",
+      link: "/manual",
+      identificador: "manual",
+    },
+  ];
   return (
     <nav id="menuLateral" className="bg-dark">
       <ul className="list-unstyled components">
-        <li>
-          <NavLink to="/">
-            <i className="fa fa-home fa-lg mr-1"></i>Inicio
-            <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sobre">
-            <i className="fa fa-info fa-lg"></i> Sobre
-            <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/equipe">
-            <i className="fa fa-user-friends fa-lg mr-1"></i> Equipe
-            <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/publicacoes">
-            <i className="fa fa-book-open fa-lg mr-1"></i>
-            Publicações
-            <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/planos">
-            <i className="fa fa-file-alt fa-lg mr-1"></i>
-            Planos Publicados
-            <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/manual">
-            <i className="fa fa-book fa-lg mr-1"></i> Manual
-            <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
-          </NavLink>
-        </li>
-        {/* <li>
-            <a
-              href="#homeSubmenu"
-              data-toggle="collapse"
-              aria-expanded="false"
-              className="dropdown-toggle"
-            >
-              Home
-            </a>
-            <ul className="collapse list-unstyled" id="homeSubmenu">
-              <li>
-                <a href="#">Home 1</a>
-              </li>
-              <li>
-                <a href="#">Home 2</a>
-              </li>
-              <li>
-                <a href="#">Home 3</a>
-              </li>
-            </ul>
-          </li> */}
+        {abasMenus.map((aba, indice) => {
+          return (
+            <li key={indice}>
+              <NavLink
+                to={aba.link}
+                onMouseOver={(event) => setItemAtual(aba.identificador)}
+                onMouseOut={(event) => setItemAtual("")}
+              >
+                <i className={"fa fa-home " + aba.icone + " mr-1"}></i>
+                {aba.denominacao}
+
+                <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
+              </NavLink>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

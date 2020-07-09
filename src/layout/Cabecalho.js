@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import Contexto from "../AppContext";
 
 export default function Cabecalho() {
-  const [librasAtivo, setLibrasAtivo] = useState(false);
-  const [menuAberto, setMenuAberto] = useState(true);
+  const { librasAtivo, setLibrasAtivo, menuAberto, setMenuAberto } = useContext(
+    Contexto
+  );
 
   useEffect(() => {
     if (!menuAberto) {
@@ -29,22 +31,24 @@ export default function Cabecalho() {
         ></i>
       </button>
       <div className="float-right">
-        <button
-          type="button"
-          title={
-            librasAtivo
-              ? "Desativar acessbilidade em Libras"
-              : "Ativar acessibilidade em Libras"
-          }
-          className={
-            librasAtivo
-              ? "btn btn-dark-blue mr-2 text-white pt-2 pb-2"
-              : "btn mr-2 text-dark pt-2 pb-2"
-          }
-          onClick={() => setLibrasAtivo(!librasAtivo)}
-        >
-          <i className="fa fa-sign-language fa-lg"></i>
-        </button>
+        {window.innerWidth > 908 && (
+          <button
+            type="button"
+            title={
+              librasAtivo
+                ? "Desativar acessbilidade em Libras"
+                : "Ativar acessibilidade em Libras"
+            }
+            className={
+              librasAtivo
+                ? "btn btn-dark-blue mr-2 text-white pt-2 pb-2"
+                : "btn mr-2 text-dark pt-2 pb-2"
+            }
+            onClick={() => setLibrasAtivo(!librasAtivo)}
+          >
+            <i className="fa fa-sign-language fa-lg"></i>
+          </button>
+        )}
         <button
           type="button"
           title="Ver Notificações"

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
+import Contexto from "./AppContext";
+
+import AcessibilidadeLibras from "./layout/AcessbilidadeLibras";
 import Cabecalho from "./layout/Cabecalho";
 import MenuLateral from "./layout/MenuLateral";
+
 import Inicio from "./paginas/inicio/Inicio";
 import Sobre from "./paginas/sobre/Sobre";
 import Equipe from "./paginas/equipe/Equipe";
@@ -12,16 +16,30 @@ import PlanosPublicados from "./paginas/planos/PlanosPublicados";
 import Manual from "./paginas/manual/Manual";
 
 function App() {
+  //Armenar escolha no storage do navegador
+  const [librasAtivo, setLibrasAtivo] = useState(false);
+  const [menuAberto, setMenuAberto] = useState(true);
+  const [itemAtual, setItemAtual] = useState("");
+
   return (
-    <div className="App">
-      <div className="wrapper">
+    <div className="App wrapper">
+      <Contexto.Provider
+        value={{
+          librasAtivo,
+          setLibrasAtivo,
+          menuAberto,
+          setMenuAberto,
+          itemAtual,
+          setItemAtual,
+        }}
+      >
         <Router>
           <MenuLateral />
           <div className=" container-fluid p-0">
             <Cabecalho />
             <div
               className={
-                window.innerWidth < 414 ? "conteudo p-1" : "conteudo p-3"
+                window.innerWidth < 414 ? "conteudo p-1" : "conteudo p-2"
               }
             >
               <Switch>
@@ -41,9 +59,12 @@ function App() {
                 <Route path="/manual" exact={true} component={Manual} />
               </Switch>
             </div>
+            {window.innerWidth > 908 && librasAtivo && itemAtual !== "" && (
+              <AcessibilidadeLibras />
+            )}
           </div>
         </Router>
-      </div>
+      </Contexto.Provider>
     </div>
   );
 }
