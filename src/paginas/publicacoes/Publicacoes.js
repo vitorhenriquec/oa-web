@@ -59,7 +59,7 @@ export default function Publicacoes() {
               <h5>
                 <i className="fa fa-calendar fa-lg"></i> {ano}
               </h5>
-              <ListaTipos artigoTipos={publicacoes[ano]} />
+              <ListaTipos ano={ano} artigoTipos={publicacoes[ano]} />
             </div>
           );
         })}
