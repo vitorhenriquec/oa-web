@@ -21,7 +21,6 @@
 }
 
 #visibilidadeSenha {
-  display: flex;
   position: relative;
   z-index: 999;
   top: -25px;

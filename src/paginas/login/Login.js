@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./Login.css";
 
@@ -25,7 +26,7 @@ export default function Login() {
             type={visibilidadeSenha ? "text" : "password"}
             className="form-control"
             id="inputSenha"
-            placeholder="Senha"
+            placeholder="Sua senha"
           />
           <i
             id="visibilidadeSenha"
@@ -35,6 +36,13 @@ export default function Login() {
             onClick={(event) => setVisibilidadeSenha(!visibilidadeSenha)}
           ></i>
         </div>
+        <Link
+          id="esqueceuSenha"
+          className="w-100 btn btn-link p-0 m-0 mb-2 "
+          to="/"
+        >
+          <span className="float-right">Esqueceu sua senha?</span>
+        </Link>
         <button
           type="submit"
           className="btn w-100 btn-primary mb-1"
