@@ -35,12 +35,41 @@ export default function Login() {
             onClick={(event) => setVisibilidadeSenha(!visibilidadeSenha)}
           ></i>
         </div>
-        <button type="submit" className="btn w-100 btn-primary mb-1">
+        <button
+          type="submit"
+          className="btn w-100 btn-primary mb-1"
+          title="Entrar"
+        >
           <i className="fa fa-sign-in-alt fa-lg mr-1"></i>Entrar
         </button>
-        <button type="submit" className="btn w-100 btn-dark">
+        <button
+          type="submit"
+          className="btn w-100 btn-dark"
+          title="Cadastrar-se"
+        >
           <i className="fa fa-user-plus fa-lg mr-1"></i>Cadastre-se
         </button>
+        <div className="row mt-3 mb-2">
+          <h6 className="d-block w-100"> Ou conecte-se com :</h6>
+          <div className="col-sm-12 col-md-6">
+            <button
+              type="submit"
+              className="btn w-100 btn-secondary mb-1"
+              title="Login pelo Facebook"
+            >
+              <i className="fab fa-facebook-f"></i>Facebook
+            </button>
+          </div>
+          <div className="col-sm-12 col-md-6">
+            <button
+              type="submit"
+              className="btn w-100 btn-secondary mb-1"
+              title="Login pelo Google"
+            >
+              <i className="fab fa-google"></i>Google
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
