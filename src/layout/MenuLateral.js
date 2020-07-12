@@ -72,7 +72,7 @@ export default function MenuLateral(props) {
                 onMouseOver={(event) => setItemAtual(aba.identificador)}
                 onMouseOut={(event) => setItemAtual("")}
               >
-                <i className={"fa fa-home " + aba.icone + " mr-1"}></i>
+                <i className={"fa " + aba.icone + " fa-lg mr-1"}></i>
                 {aba.denominacao}
 
                 <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
