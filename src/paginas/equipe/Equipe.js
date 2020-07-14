@@ -9,7 +9,7 @@ export default function Equipe() {
   const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    const spreadsheetID = "1DENv1qYvdoEbAw63BIVqPss8eCS-RdMOH7DU5PnmRUk";
+    const spreadsheetID = process.env.REACT_APP_EQUIPE_KEY;
     const url =
       "https://spreadsheets.google.com/feeds/list/" +
       spreadsheetID +

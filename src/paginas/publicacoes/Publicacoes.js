@@ -9,7 +9,7 @@ export default function Publicacoes() {
   const [publicacoes, setPublicacoes] = useState({});
 
   useEffect(() => {
-    const spreadsheetID = "1LwZLQk-i68CZKfN1FUyIq7G_ozWgBT0fcE_ulHkwz7c";
+    const spreadsheetID = process.env.REACT_APP_PUBLICACOES_KEY;
     const url =
       "https://spreadsheets.google.com/feeds/list/" +
       spreadsheetID +
