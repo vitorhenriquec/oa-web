@@ -1,22 +1,22 @@
 #formCadastro {
-  width: 40% !important;
+  width: 50% !important;
 }
 
 @media (max-width: 1280px) {
-  #formCadastro {
-    width: 50% !important;
-  }
-}
-
-@media (max-width: 992px) {
   #formCadastro {
     width: 60% !important;
   }
 }
 
+@media (max-width: 992px) {
+  #formCadastro {
+    width: 70% !important;
+  }
+}
+
 @media (max-width: 404px) {
   #formCadastro {
-    width: 80% !important;
+    width: 90% !important;
   }
 }
 
