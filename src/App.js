@@ -6,6 +6,7 @@ import Contexto from "./AppContext";
 
 import AcessibilidadeLibras from "./layout/AcessbilidadeLibras";
 import Cabecalho from "./layout/Cabecalho";
+import Rodape from "./layout/Rodape";
 import MenuLateral from "./layout/MenuLateral";
 
 import Inicio from "./paginas/inicio/Inicio";
@@ -63,6 +64,7 @@ function App() {
                 <Route path="/cadastro" exact={true} component={Cadastro} />
               </Switch>
             </div>
+            <Rodape />
             {window.innerWidth > 908 && librasAtivo && itemAtual !== "" && (
               <AcessibilidadeLibras />
             )}

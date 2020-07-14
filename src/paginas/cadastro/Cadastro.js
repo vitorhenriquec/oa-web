@@ -119,12 +119,12 @@ export default function Cadastro() {
               </select>
             </div>
             <div className="form-group text-justify">
-              <label for="inputFoto ">
+              <label htmlFor="inputFoto ">
                 <b>Sua foto de perfil: </b>
               </label>
               <input
                 type="file"
-                class="form-control-file"
+                className="form-control-file"
                 id="inputFoto"
                 accept="image/*"
               />

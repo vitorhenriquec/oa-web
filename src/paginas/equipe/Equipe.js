@@ -9,25 +9,28 @@ export default function Equipe() {
   const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    const spreadsheetID = process.env.REACT_APP_EQUIPE_KEY;
-    const url =
-      "https://spreadsheets.google.com/feeds/list/" +
-      spreadsheetID +
-      "/od6/public/values?alt=json";
-    axios.get(url).then((resp) => {
-      var dadosEquipe = resp.data.feed.entry;
-      var equipe = dadosEquipe.map((dado) => {
-        return {
-          nomeImagem: dado.gsx$imagem.$t,
-          nome: dado.gsx$nome.$t,
-          nomeCompleto: dado.gsx$nomecompleto.$t,
-          biografia: dado.gsx$biografia.$t,
-          lattes: dado.gsx$lattes.$t,
-        };
+    const equipeKey = process.env.REACT_APP_EQUIPE_KEY;
+    console.log(equipeKey);
+    if (equipeKey && equipeKey !== "") {
+      const url =
+        "https://spreadsheets.google.com/feeds/list/" +
+        equipeKey +
+        "/od6/public/values?alt=json";
+      axios.get(url).then((resp) => {
+        var dadosEquipe = resp.data.feed.entry;
+        var equipe = dadosEquipe.map((dado) => {
+          return {
+            nomeImagem: dado.gsx$imagem.$t,
+            nome: dado.gsx$nome.$t,
+            nomeCompleto: dado.gsx$nomecompleto.$t,
+            biografia: dado.gsx$biografia.$t,
+            lattes: dado.gsx$lattes.$t,
+          };
+        });
+        setCarregando(false);
+        setEquipe(equipe);
       });
-      setCarregando(false);
-      setEquipe(equipe);
-    });
+    }
   }, []);
 
   return (
