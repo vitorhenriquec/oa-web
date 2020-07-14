@@ -50,13 +50,9 @@ export default function Login() {
         >
           <i className="fa fa-sign-in-alt fa-lg mr-1"></i>Entrar
         </button>
-        <button
-          type="submit"
-          className="btn w-100 btn-dark"
-          title="Cadastrar-se"
-        >
+        <Link role="button" className="btn w-100 btn-dark" to="/cadastro">
           <i className="fa fa-user-plus fa-lg mr-1"></i>Cadastre-se
-        </button>
+        </Link>
         <div className="row mt-3 mb-2">
           <h6 className="d-block w-100"> Ou conecte-se com :</h6>
           <div className="col-sm-12 col-md-6">
