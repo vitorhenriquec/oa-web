@@ -19,6 +19,7 @@ export default function Login() {
             id="inputEmail"
             aria-describedby="emailHelp"
             placeholder="Seu email"
+            required
           />
         </div>
         <div className="form-group">
@@ -27,6 +28,7 @@ export default function Login() {
             className="form-control"
             id="inputSenha"
             placeholder="Sua senha"
+            required
           />
           <i
             id="visibilidadeSenha"

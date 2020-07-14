@@ -22,6 +22,7 @@ export default function Cadastro() {
               name="nome"
               id="inputNome"
               placeholder="Seu nome completo*"
+              required
             />
           </div>
           <div className="form-group">
@@ -31,6 +32,7 @@ export default function Cadastro() {
               id="inputEmail"
               name="email"
               placeholder="Seu e-mail*"
+              required
             />
           </div>
           <div className="form-group">
@@ -40,6 +42,7 @@ export default function Cadastro() {
               id="inputSenha"
               name="senha"
               placeholder="Sua senha*"
+              required
             />
             <i
               id="visibilidadeSenha"
@@ -58,6 +61,7 @@ export default function Cadastro() {
               id="inputSenha"
               name="confirmacaoSenha"
               placeholder="Confirmação da sua senha*"
+              required
             />
             <i
               id="visibilidadeSenha"
