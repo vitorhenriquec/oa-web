@@ -38,7 +38,7 @@ export default function MenuLateral(props) {
     },
     {
       denominacao: "Planos Publicados",
-      icone: "fa-file-alt",
+      icone: "fa-file-contract",
       link: "/planos",
       identificador: "planos",
       subAbas: [],
