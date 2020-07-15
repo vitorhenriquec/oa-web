@@ -9,9 +9,9 @@ export default function Cabecalho() {
 
   useEffect(() => {
     if (!menuAberto) {
-      document.getElementById("menuLateral").classList.add("active");
+      document.getElementById("menuLateral").classList.add("desativar");
     } else {
-      document.getElementById("menuLateral").classList.remove("active");
+      document.getElementById("menuLateral").classList.remove("desativar");
     }
   }, [menuAberto]);
 

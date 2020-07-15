@@ -13,36 +13,68 @@ export default function MenuLateral(props) {
       icone: "fa-home",
       link: "/",
       identificador: "inicio",
+      subAbas: [],
     },
     {
       denominacao: "Sobre",
       icone: "fa-info",
       link: "/sobre",
       identificador: "sobre",
+      subAbas: [],
     },
     {
       denominacao: "Equipe",
       icone: "fa-user-friends",
       link: "/equipe",
       identificador: "equipe",
+      subAbas: [],
     },
     {
       denominacao: "Publicações",
       icone: "fa-book-open",
       link: "/publicacoes",
       identificador: "publicacoes",
+      subAbas: [],
     },
     {
       denominacao: "Planos Publicados",
       icone: "fa-file-alt",
       link: "/planos",
       identificador: "planos",
+      subAbas: [],
     },
     {
       denominacao: "Manual",
       icone: "fa-book",
       link: "/manual",
       identificador: "manual",
+      subAbas: [],
+    },
+    {
+      denominacao: "Plano de Aula",
+      icone: "fa-file-alt",
+      link: "/planoAula",
+      identificador: "planoAula",
+      subAbas: [
+        {
+          denominacao: "Novo",
+          icone: "fa-plus",
+          link: "/novo",
+          identificador: "novo",
+        },
+        {
+          denominacao: "Meus planos",
+          icone: "fa-id-badge",
+          link: "/meusPlanos",
+          identificador: "meusPlanos",
+        },
+        {
+          denominacao: "Buscar",
+          icone: "fa-search",
+          link: "/buscar",
+          identificador: "buscar",
+        },
+      ],
     },
   ];
   return (
@@ -67,16 +99,51 @@ export default function MenuLateral(props) {
         {abasMenus.map((aba, indice) => {
           return (
             <li key={indice}>
-              <NavLink
-                to={aba.link}
-                onMouseOver={(event) => setItemAtual(aba.identificador)}
-                onMouseOut={(event) => setItemAtual("")}
-              >
-                <i className={"fa " + aba.icone + " fa-lg mr-1"}></i>
-                {aba.denominacao}
-
-                <i className="pt-1 float-right fa fa-angle-left fa-xl"></i>
-              </NavLink>
+              {aba.subAbas.length === 0 && (
+                <NavLink
+                  to={aba.link}
+                  onMouseOver={(event) => setItemAtual(aba.identificador)}
+                  onMouseOut={(event) => setItemAtual("")}
+                >
+                  <i className={"fa " + aba.icone + " fa-lg mr-1"}></i>
+                  {aba.denominacao}
+                </NavLink>
+              )}
+              {aba.subAbas.length !== 0 && (
+                <>
+                  <a
+                    href={"#" + aba.identificador}
+                    data-toggle="collapse"
+                    aria-expanded="false"
+                    role="button"
+                    aria-controls={aba.identificador}
+                    class="dropdown-toggle"
+                  >
+                    <i className={"fa " + aba.icone + " fa-lg mr-1"}></i>
+                    {aba.denominacao}
+                  </a>
+                  <ul className="collapse list-unstyled" id={aba.identificador}>
+                    {aba.subAbas.map((subAba) => {
+                      return (
+                        <li>
+                          <NavLink
+                            to={aba.link + subAba.link}
+                            onMouseOver={(event) =>
+                              setItemAtual(subAba.identificador)
+                            }
+                            onMouseOut={(event) => setItemAtual("")}
+                          >
+                            <i
+                              className={"fa " + subAba.icone + " fa-lg mr-1"}
+                            ></i>
+                            {subAba.denominacao}
+                          </NavLink>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </>
+              )}
             </li>
           );
         })}
