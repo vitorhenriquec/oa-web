@@ -18,7 +18,8 @@ export default function Publicacoes() {
       axios.get(url).then((resp) => {
         const dadosPublicacoes = resp.data.feed.entry;
         const publicacoes = {};
-        for (const [chave, valor] of Object.entries(dadosPublicacoes)) {
+        for (const [chave] of Object.entries(dadosPublicacoes)) {
+          const valor = dadosPublicacoes[chave];
           const ano = valor["gsx$ano"]["$t"];
           const tipo = valor["gsx$tipo"]["$t"];
           if (!(ano in publicacoes)) {
