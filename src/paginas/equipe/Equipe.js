@@ -42,11 +42,13 @@ export default function Equipe() {
           return (
             <div key={idx} className="col-12 col-sm-3 text-center">
               <img
-                className="mx-auto d-block w-50"
+                className="mx-auto d-block w-50 h-75"
                 src={iconeUsuario}
                 alt={"Foto de " + membro.nome}
               />
-              <span className="d-block">{membro.nome}</span>
+              <span className="d-block nomeMembro mb-5 mb-md-3">
+                {membro.nome}
+              </span>
             </div>
           );
         })}
