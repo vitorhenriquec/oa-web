@@ -11,7 +11,7 @@ export default function Login() {
         <h1>OA</h1>
         <h6>Objeto de Aprendizagem</h6>
       </div>
-      <form id="formLogin" className="m-auto">
+      <form id="formLogin" className="m-auto bg-light p-4 rounded">
         <div className="form-group">
           <input
             type="email"
