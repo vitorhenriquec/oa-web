@@ -117,7 +117,7 @@ export default function MenuLateral(props) {
                     aria-expanded="false"
                     role="button"
                     aria-controls={aba.identificador}
-                    class="dropdown-toggle"
+                    className="dropdown-toggle"
                   >
                     <i className={"fa " + aba.icone + " fa-lg mr-1"}></i>
                     {aba.denominacao}
@@ -125,7 +125,7 @@ export default function MenuLateral(props) {
                   <ul className="collapse list-unstyled" id={aba.identificador}>
                     {aba.subAbas.map((subAba) => {
                       return (
-                        <li>
+                        <li key={subAba.identificador}>
                           <NavLink
                             to={aba.link + subAba.link}
                             onMouseOver={(event) =>
