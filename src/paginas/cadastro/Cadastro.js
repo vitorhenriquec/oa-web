@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./Cadastro.css";
 
@@ -6,6 +6,17 @@ export default function Cadastro() {
   const [visibilidadeSenha, setVisibilidadeSenha] = useState(false);
   const [visibilidadeConfSenha, setVisibilidadeConfSenha] = useState(false);
   const [dadosPessoaisAtivo, setDadosPessoaisAtivo] = useState(false);
+  const [cpf, setCpf] = useState("");
+
+  useEffect(() => {
+    var novoCpf = cpf
+      .replace(/\D/g, "")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d{1,2})/, "$1-$2")
+      .replace(/(-\d{2})\d+?$/, "$1");
+    setCpf(novoCpf);
+  }, [cpf]);
 
   return (
     <div className="text-center">
@@ -103,7 +114,18 @@ export default function Cadastro() {
               <input
                 type="text"
                 className="form-control"
-                id="inputNome"
+                id="inputCpf"
+                name="cpf"
+                placeholder="Seu CPF"
+                value={cpf}
+                onChange={(event) => setCpf(event.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                id="inputNomeSocial"
                 name="nomeSocial"
                 placeholder="Seu nome social"
               />
