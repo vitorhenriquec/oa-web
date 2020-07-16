@@ -1,0 +1,70 @@
+.btn-dark-blue {
+  color: #fff;
+  background-color: #0000cd;
+  border-color: #0000cd;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #2196f3 !important;
+  border-color: #2196f3 !important;
+}
+
+.bg-primary {
+  background-color: #2196f3 !important;
+}
+
+.text-primary {
+  color: #2196f3 !important;
+}
+
+.btn-link {
+  font-weight: 400;
+  color: #2196f3;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.conteudo {
+  background-image: url("./recursos/img/bg.jpeg");
+  min-height: 100vh;
+}
+
+.overlay {
+  padding-top: 2%;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.overlay > i {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.w-70 {
+  width: 70% !important;
+}
+
+.nav-pills .nav-link.desativar,
+.nav-pills .show > .nav-link {
+  color: white;
+  background-color: #2196f3 !important;
+}

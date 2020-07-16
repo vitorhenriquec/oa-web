@@ -1,0 +1,88 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+#menuLateral {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#menuLateral ul.components {
+  padding: 20px 0;
+}
+
+#menuLateral ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  color: #fff;
+  display: block;
+  font-size: larger;
+}
+
+#menuLateral ul li:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#menuLateral ul li a span:hover {
+  color: #fff;
+}
+
+.desativar-link > .fa-angle-left {
+  display: block;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+}
+
+#menuLateral.desativar {
+  margin-left: -250px;
+}
+
+#secaoTelaCelular {
+  display: none;
+}
+
+@media (max-width: 414px) {
+  #menuLateral {
+    max-width: 100%;
+    min-width: 100%;
+    display: block;
+    position: fixed;
+    z-index: 999;
+    min-height: 100%;
+  }
+  #menuLateral.desativar {
+    left: -1000px;
+    transition: opacity 0.4s ease-out;
+    -ms-transition: opacity 0.4s ease-out;
+    -moz-transition: opacity 0.4s ease-out;
+    -webkit-transition: opacity 0.4s ease-out;
+  }
+  #secaoTelaCelular {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  #menuLateral.desativar {
+    margin-left: 250;
+  }
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
