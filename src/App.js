@@ -8,6 +8,7 @@ import AcessibilidadeLibras from "./layout/AcessbilidadeLibras";
 import Cabecalho from "./layout/Cabecalho";
 import Rodape from "./layout/Rodape";
 import MenuLateral from "./layout/MenuLateral";
+import Mensagem from "./layout/Mensagem";
 
 import Inicio from "./paginas/inicio/Inicio";
 import Sobre from "./paginas/sobre/Sobre";
@@ -45,6 +46,13 @@ function App() {
                 window.innerWidth < 414 ? "conteudo p-1" : "conteudo p-2"
               }
             >
+              <div className="w-50 mr-auto ml-auto">
+                <Mensagem
+                  mensagem="Cuidado"
+                  tipo="erro"
+                  ocultarAposTempo={false}
+                />
+              </div>
               <Switch>
                 <Route path="/" exact={true} component={Inicio} />
                 <Route path="/sobre" exact={true} component={Sobre} />

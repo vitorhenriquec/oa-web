@@ -71,7 +71,7 @@ ul ul a {
 
 @media (max-width: 768px) {
   #menuLateral.desativar {
-    margin-left: 0;
+    margin-left: 250;
   }
 }
 
