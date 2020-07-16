@@ -1,3 +1,3 @@
-# Oba-web
+# Oa-web
 
 Interface para a api-web.
