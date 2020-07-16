@@ -24,6 +24,7 @@ function App() {
   const [librasAtivo, setLibrasAtivo] = useState(false);
   const [menuAberto, setMenuAberto] = useState(true);
   const [itemAtual, setItemAtual] = useState("");
+  const [mensagens, setMensagens] = useState([]);
 
   return (
     <div className="App wrapper">
@@ -35,6 +36,8 @@ function App() {
           setMenuAberto,
           itemAtual,
           setItemAtual,
+          mensagens,
+          setMensagens,
         }}
       >
         <Router>
@@ -47,11 +50,16 @@ function App() {
               }
             >
               <div className="w-50 mr-auto ml-auto">
-                <Mensagem
-                  mensagem="Cuidado"
-                  tipo="erro"
-                  ocultarAposTempo={false}
-                />
+                {mensagens.map((mensagem) => {
+                  return (
+                    <Mensagem
+                      titulo={mensagem.titulo}
+                      texto={mensagem.texto}
+                      tipo={mensagem.tipo}
+                      ocultarAposTempo={mensagem.ocultarAposTempo}
+                    />
+                  );
+                })}
               </div>
               <Switch>
                 <Route path="/" exact={true} component={Inicio} />

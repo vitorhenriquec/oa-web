@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Mensagem.css";
 
-export default function Mensagem({ mensagem, tipo, ocultarAposTempo }) {
+export default function Mensagem({ titulo, texto, tipo, ocultarAposTempo }) {
   function classeTipo() {
     switch (tipo) {
       case "erro":
@@ -26,7 +26,7 @@ export default function Mensagem({ mensagem, tipo, ocultarAposTempo }) {
     >
       <div className="toast-header">
         <i className={"fa " + classeTipo() + " fa-lg"}></i>
-        <strong className="mr-auto ml-1">Titulo</strong>
+        <strong className="mr-auto ml-1">{titulo}</strong>
         <small>11 mins ago</small>
         <button
           type="button"
@@ -38,7 +38,7 @@ export default function Mensagem({ mensagem, tipo, ocultarAposTempo }) {
         </button>
       </div>
       <div className="toast-body pt-1 pb-0">
-        <p>{mensagem}</p>
+        <p>{texto}</p>
       </div>
     </div>
   );
