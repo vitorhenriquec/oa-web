@@ -38,7 +38,7 @@ export default function Cadastro() {
     setCpf(novoCpf);
   }
 
-  function nomeValido() {
+  function validarNome() {
     var erro = "";
     const { valor } = nome;
     if (valor === "") {
@@ -50,7 +50,7 @@ export default function Cadastro() {
     return erro === "";
   }
 
-  function senhaValida() {
+  function validarSenha() {
     var erro = "";
     const { valor } = senha;
     if (valor === "") {
@@ -62,7 +62,7 @@ export default function Cadastro() {
     return erro === "";
   }
 
-  function confirmarSenhaValida() {
+  function validarConfirmarSenha() {
     var erro = "";
     const { valor } = confirmarSenha;
     if (valor === "") {
@@ -75,9 +75,9 @@ export default function Cadastro() {
   }
 
   function validarCampos() {
-    nomeValido();
-    senhaValida();
-    confirmarSenhaValida();
+    validarNome();
+    validarSenha();
+    validarConfirmarSenha();
 
     var valido = true;
     var campos = {
