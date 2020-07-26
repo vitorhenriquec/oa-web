@@ -51,6 +51,14 @@ export default function Publicacoes() {
     }
   }, []);
 
+  function escolherIconeCalendario(ano) {
+    return ano > new Date().getFullYear() ? (
+      <i className="fa fa-calendar fa-lg"></i>
+    ) : (
+      <i className="fa fa-calendar-check fa-lg"></i>
+    );
+  }
+
   return (
     <div className="text-center mr-auto ml-auto w-95">
       <h1 className="pt-4 pb-2">Publicações</h1>
@@ -60,9 +68,10 @@ export default function Publicacoes() {
           return (
             <div key={ano}>
               <h5>
-                <i className="fa fa-calendar fa-lg"></i> {ano}
+                {escolherIconeCalendario(ano)}
+                {ano}
               </h5>
-              <ListaTipos ano={ano} artigoTipos={publicacoes[ano]} />
+              <ListaTipos ano={ano} tipos={publicacoes[ano]} />
             </div>
           );
         })}

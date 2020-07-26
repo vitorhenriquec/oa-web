@@ -1,16 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-export default function ListaArtigos(props) {
-  const [artigos, setArtigos] = useState([]);
-  const [ano, setAno] = useState(0);
-  const [tipo, setTipo] = useState(0);
-
-  useEffect(() => {
-    setArtigos(props.artigos);
-    setAno(props.ano);
-    setTipo(props.tipo);
-  }, []);
-
+export default function ListaArtigos({ artigos, ano, tipo }) {
   function identificarCollapse(indice) {
     const tipoSigla = tipo
       .toLowerCase()
