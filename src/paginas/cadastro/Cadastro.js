@@ -139,7 +139,7 @@ export default function Cadastro() {
               required
             />
             {nome.erro !== "" && (
-              <small className="pl-1 text-danger">{nome.erro}</small>
+              <small className="pl-1 text-danger m-1">{nome.erro}</small>
             )}
           </div>
           <div className="form-group">
@@ -157,7 +157,7 @@ export default function Cadastro() {
               required
             />
             {email.erro !== "" && (
-              <small className="pl-1 text-danger">{email.erro}</small>
+              <small className="pl-1 text-danger m-1">{email.erro}</small>
             )}
           </div>
           <div className="form-group">
@@ -184,7 +184,7 @@ export default function Cadastro() {
               onClick={(event) => setVisibilidadeSenha(!visibilidadeSenha)}
             ></i>
             {senha.erro !== "" && (
-              <small className="pl-1 text-danger">{senha.erro}</small>
+              <small className="pl-1 text-danger m-1">{senha.erro}</small>
             )}
           </div>
           <div className="form-group">
@@ -213,7 +213,9 @@ export default function Cadastro() {
               }
             ></i>
             {confirmarSenha.erro !== "" && (
-              <small className="pl-1 text-danger">{confirmarSenha.erro}</small>
+              <small className="pl-1 text-danger m-1">
+                {confirmarSenha.erro}
+              </small>
             )}
           </div>
         </div>
