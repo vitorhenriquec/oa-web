@@ -1,57 +1,176 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 import "./Cadastro.css";
 
 export default function Cadastro() {
   const [visibilidadeSenha, setVisibilidadeSenha] = useState(false);
   const [visibilidadeConfSenha, setVisibilidadeConfSenha] = useState(false);
-  const [dadosPessoaisAtivo, setDadosPessoaisAtivo] = useState(false);
-  const [cpf, setCpf] = useState("");
+  const [dadosOpcionaisAtivo, setDadosOpcionaisAtivo] = useState(false);
 
-  useEffect(() => {
-    var novoCpf = cpf
+  const [email, setEmail] = useState({
+    valor: "",
+    erro: "",
+  });
+  const [senha, setSenha] = useState({
+    valor: "",
+    erro: "",
+  });
+  const [confirmarSenha, setConfirmarSenha] = useState({
+    valor: "",
+    erro: "",
+  });
+  const [nome, setNome] = useState({
+    valor: "",
+    erro: "",
+  });
+  const [cpf, setCpf] = useState({ valor: "", erro: "" });
+  const [nomeSocial, setNomeSocial] = useState({ valor: "", erro: "" });
+
+  function guardarCpf(valor) {
+    valor = valor
       .replace(/\D/g, "")
       .replace(/(\d{3})(\d)/, "$1.$2")
       .replace(/(\d{3})(\d)/, "$1.$2")
       .replace(/(\d{3})(\d{1,2})/, "$1-$2")
       .replace(/(-\d{2})\d+?$/, "$1");
+    const novoCpf = { valor, erro: "" };
     setCpf(novoCpf);
-  }, [cpf]);
+  }
+
+  function nomeValido() {
+    var erro = "";
+    const { valor } = nome;
+    if (valor === "") {
+      erro = "Nome não pode ser vázio";
+    } else if (valor.length < 3) {
+      erro = "Nome não poder conter menos de três letras";
+    }
+    setNome({ valor, erro });
+    return erro === "";
+  }
+
+  function senhaValida() {
+    var erro = "";
+    const { valor } = senha;
+    if (valor === "") {
+      erro = "Senha não pode ser vázia";
+    } else if (valor.length < 6) {
+      erro = "Senha não deve ter menos de seis caracteres";
+    }
+    setSenha({ valor, erro });
+    return erro === "";
+  }
+
+  function confirmarSenhaValida() {
+    var erro = "";
+    const { valor } = confirmarSenha;
+    if (valor === "") {
+      erro = "Senha não pode ser vázia";
+    } else if (valor !== senha.valor) {
+      erro = "Senha e sua confirmação não coincidem";
+    }
+    setConfirmarSenha({ valor, erro });
+    return erro === "";
+  }
+
+  function validarCampos() {
+    nomeValido();
+    senhaValida();
+    confirmarSenhaValida();
+
+    var valido = true;
+    var campos = {
+      nome: nome,
+      email: email,
+      senha: senha,
+      confirmar_senha: confirmarSenha,
+    };
+
+    for (var campo in campos) {
+      if (campos[campo].erro !== "") {
+        valido = false;
+      }
+    }
+
+    return valido;
+  }
+
+  function cadastrar(event) {
+    event.preventDefault();
+
+    var campos = {
+      nome: nome.valor,
+      email: email.valor,
+      senha: senha.valor,
+      confirmar_senha: confirmarSenha.valor,
+    };
+
+    if (!validarCampos()) {
+      event.stopPropagation();
+    } else {
+      axios
+        .post("http://localhost:8000/cadastrar", campos)
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
+    }
+  }
 
   return (
     <div className="text-center">
       <div className="mt-4">
         <h3 className="mb-3">Cadastro</h3>
       </div>
-      <form id="formLogin" className="m-auto text-justify">
+      <form id="formLogin" className="m-auto text-justify" onSubmit={cadastrar}>
         <div className="dadosObrigatorios p-4 bg-light rounded">
           <h5 className="mb-3">Dados obrigatórios :</h5>
           <div className="form-group">
             <input
               type="text"
-              className="form-control"
+              className={"form-control " + (nome.erro ? "border-danger" : "")}
               name="nome"
               id="inputNome"
+              value={nome.valor}
+              onChange={(event) => {
+                const valor = event.target.value;
+                setNome({ valor, erro: "" });
+              }}
               placeholder="Seu nome completo*"
               required
             />
+            {nome.erro !== "" && (
+              <small className="pl-1 text-danger">{nome.erro}</small>
+            )}
           </div>
           <div className="form-group">
             <input
               type="email"
-              className="form-control"
+              className={"form-control " + (email.erro ? "border-danger" : "")}
               id="inputEmail"
               name="email"
+              value={email.valor}
+              onChange={(event) => {
+                const valor = event.target.value;
+                setEmail({ valor, erro: "" });
+              }}
               placeholder="Seu e-mail*"
               required
             />
+            {email.erro !== "" && (
+              <small className="pl-1 text-danger">{email.erro}</small>
+            )}
           </div>
           <div className="form-group">
             <input
               type={visibilidadeSenha ? "text" : "password"}
-              className="form-control"
+              className={"form-control " + (senha.erro ? "border-danger" : "")}
               id="inputSenha"
               name="senha"
+              value={senha.valor}
+              onChange={(event) => {
+                const valor = event.target.value;
+                setSenha({ valor, erro: "" });
+              }}
               placeholder="Sua senha*"
               required
             />
@@ -64,13 +183,21 @@ export default function Cadastro() {
               }
               onClick={(event) => setVisibilidadeSenha(!visibilidadeSenha)}
             ></i>
+            {senha.erro !== "" && (
+              <small className="pl-1 text-danger">{senha.erro}</small>
+            )}
           </div>
           <div className="form-group">
             <input
               type={visibilidadeConfSenha ? "text" : "password"}
               className="form-control"
-              id="inputSenha"
-              name="confirmacaoSenha"
+              id="inputConfirmarSenha"
+              name="confirmar_senha"
+              value={confirmarSenha.valor}
+              onChange={(event) => {
+                const valor = event.target.value;
+                setConfirmarSenha({ valor, erro: "" });
+              }}
               placeholder="Confirmação da sua senha*"
               required
             />
@@ -85,12 +212,15 @@ export default function Cadastro() {
                 setVisibilidadeConfSenha(!visibilidadeConfSenha)
               }
             ></i>
+            {confirmarSenha.erro !== "" && (
+              <small className="pl-1 text-danger">{confirmarSenha.erro}</small>
+            )}
           </div>
         </div>
         <div className="dadosOpcionais mt-4 mb-4 p-4 bg-light rounded">
           <h5
             className="mb-3"
-            onClick={(event) => setDadosPessoaisAtivo(!dadosPessoaisAtivo)}
+            onClick={(event) => setDadosOpcionaisAtivo(!dadosOpcionaisAtivo)}
           >
             <a
               data-toggle="collapse"
@@ -102,7 +232,7 @@ export default function Cadastro() {
               Dados opcionais :
               <i
                 className={
-                  dadosPessoaisAtivo
+                  dadosOpcionaisAtivo
                     ? "fa fa-angle-up fa-lg float-right"
                     : "fa fa-angle-down fa-lg float-right"
                 }
@@ -117,8 +247,10 @@ export default function Cadastro() {
                 id="inputCpf"
                 name="cpf"
                 placeholder="Seu CPF"
-                value={cpf}
-                onChange={(event) => setCpf(event.target.value)}
+                value={cpf.valor}
+                onChange={(event) => {
+                  guardarCpf(event.target.value);
+                }}
               />
             </div>
             <div className="form-group">
@@ -154,9 +286,9 @@ export default function Cadastro() {
           </div>
         </div>
         <button
-          type="button"
+          type="submit"
           className="btn w-100 btn-primary mb-1"
-          title="Entrar"
+          title="Cadastrar"
         >
           <i className="fa fa-user-plus fa-lg mr-1"></i>Cadastrar-se
         </button>
