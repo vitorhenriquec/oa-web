@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 
 import "./Cadastro.css";
+import Contexto from "../../AppContext";
 
 export default function Cadastro() {
+  const { mensagens, setMensagens } = useContext(Contexto);
+
   const [visibilidadeSenha, setVisibilidadeSenha] = useState(false);
   const [visibilidadeConfSenha, setVisibilidadeConfSenha] = useState(false);
   const [dadosOpcionaisAtivo, setDadosOpcionaisAtivo] = useState(false);
@@ -26,6 +29,7 @@ export default function Cadastro() {
   });
   const [cpf, setCpf] = useState({ valor: "", erro: "" });
   const [nomeSocial, setNomeSocial] = useState({ valor: "", erro: "" });
+  const [sexo, setSexo] = useState({ valor: "0", erro: "" });
 
   function guardarCpf(valor) {
     valor = valor
@@ -104,14 +108,39 @@ export default function Cadastro() {
       email: email.valor,
       senha: senha.valor,
       confirmar_senha: confirmarSenha.valor,
+      tipo_cadastro: 1,
     };
+
+    if (cpf.valor !== "") {
+      campos[cpf] = cpf.valor;
+    }
+
+    if (nomeSocial.valor !== "") {
+      campos["nome_social"] = nomeSocial.valor;
+    }
+
+    if (sexo.valor !== "0") {
+      campos[sexo] = parseInt(sexo.valor);
+    }
 
     if (!validarCampos()) {
       event.stopPropagation();
     } else {
       axios
-        .post("http://localhost:8000/cadastrar", campos)
-        .then((response) => console.log(response))
+        .post("http://localhost:8000/cadastrar/", campos)
+        .then((resposta) => {
+          if (resposta.status === 201) {
+            setMensagens([
+              ...mensagens,
+              {
+                titulo: "Sucesso",
+                texto: resposta.data.mensagem,
+                tipo: "sucesso",
+                ocultarAposTempo: true,
+              },
+            ]);
+          }
+        })
         .catch((error) => console.log(error));
     }
   }
@@ -260,12 +289,25 @@ export default function Cadastro() {
                 type="text"
                 className="form-control"
                 id="inputNomeSocial"
-                name="nomeSocial"
+                name="nome_social"
                 placeholder="Seu nome social"
+                value={nomeSocial.valor}
+                onChange={(event) => {
+                  const valor = event.target.value;
+                  setNomeSocial({ valor, erro: "" });
+                }}
               />
             </div>
             <div className="form-group">
-              <select className="form-control" id="inputSexo">
+              <select
+                className="form-control"
+                id="inputSexo"
+                value={sexo.valor}
+                onChange={(event) => {
+                  const valor = event.target.value;
+                  setSexo({ valor, erro: "" });
+                }}
+              >
                 <option value="0" default>
                   Seu sexo
                 </option>

@@ -50,9 +50,10 @@ function App() {
               }
             >
               <div className="w-50 mr-auto ml-auto">
-                {mensagens.map((mensagem) => {
+                {mensagens.map((mensagem, indice) => {
                   return (
                     <Mensagem
+                      key={indice}
                       titulo={mensagem.titulo}
                       texto={mensagem.texto}
                       tipo={mensagem.tipo}
