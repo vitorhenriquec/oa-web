@@ -1,12 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import toastr from "toastr";
 
 import "./Cadastro.css";
-import Contexto from "../../AppContext";
 
 export default function Cadastro() {
-  const { mensagens, setMensagens } = useContext(Contexto);
-
   const [visibilidadeSenha, setVisibilidadeSenha] = useState(false);
   const [visibilidadeConfSenha, setVisibilidadeConfSenha] = useState(false);
   const [dadosOpcionaisAtivo, setDadosOpcionaisAtivo] = useState(false);
@@ -112,7 +110,7 @@ export default function Cadastro() {
     };
 
     if (cpf.valor !== "") {
-      campos[cpf] = cpf.valor;
+      campos["cpf"] = cpf.valor;
     }
 
     if (nomeSocial.valor !== "") {
@@ -120,7 +118,7 @@ export default function Cadastro() {
     }
 
     if (sexo.valor !== "0") {
-      campos[sexo] = parseInt(sexo.valor);
+      campos["sexo"] = parseInt(sexo.valor);
     }
 
     if (!validarCampos()) {
@@ -130,15 +128,7 @@ export default function Cadastro() {
         .post("http://localhost:8000/cadastrar/", campos)
         .then((resposta) => {
           if (resposta.status === 201) {
-            setMensagens([
-              ...mensagens,
-              {
-                titulo: "Sucesso",
-                texto: resposta.data.mensagem,
-                tipo: "sucesso",
-                ocultarAposTempo: true,
-              },
-            ]);
+            toastr.success("Sucesso", resposta.data.mensagem);
           }
         })
         .catch((error) => console.log(error));
