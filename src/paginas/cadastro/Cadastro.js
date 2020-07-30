@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import toastr from "toastr";
+import { toast } from "react-toastify";
+import { cpf as validadorCpf } from "cpf-cnpj-validator";
 
 import "./Cadastro.css";
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Cadastro() {
   const [visibilidadeSenha, setVisibilidadeSenha] = useState(false);
@@ -73,34 +76,39 @@ export default function Cadastro() {
       erro = "Senha e sua confirmação não coincidem";
     }
     setConfirmarSenha({ valor, erro });
-    return erro === "";
+  }
+
+  function validarCpf() {
+    const { valor } = cpf;
+    if (
+      valor !== "" &&
+      !validadorCpf.isValid(valor.replace(/[.]/g, "").replace(/-/g, ""))
+    ) {
+      setCpf({ valor, erro: "Cpf inválido" });
+    }
+  }
+
+  function validarNomeSocial() {
+    const { valor } = nomeSocial;
+    if (valor !== "" && valor.length < 3) {
+      setNomeSocial({
+        valor,
+        erro: "Nome social não poder conter menos de três letras",
+      });
+    }
   }
 
   function validarCampos() {
     validarNome();
     validarSenha();
     validarConfirmarSenha();
-
-    var valido = true;
-    var campos = {
-      nome: nome,
-      email: email,
-      senha: senha,
-      confirmar_senha: confirmarSenha,
-    };
-
-    for (var campo in campos) {
-      if (campos[campo].erro !== "") {
-        valido = false;
-      }
-    }
-
-    return valido;
+    validarCpf();
+    validarNomeSocial();
   }
 
   function cadastrar(event) {
     event.preventDefault();
-
+    validarCampos();
     var campos = {
       nome: nome.valor,
       email: email.valor,
@@ -121,18 +129,23 @@ export default function Cadastro() {
       campos["sexo"] = parseInt(sexo.valor);
     }
 
-    if (!validarCampos()) {
-      event.stopPropagation();
-    } else {
-      axios
-        .post("http://localhost:8000/cadastrar/", campos)
-        .then((resposta) => {
-          if (resposta.status === 201) {
-            toastr.success("Sucesso", resposta.data.mensagem);
+    axios
+      .post(API_URL + "cadastrar/", campos)
+      .then((resposta) => {
+        if (resposta.status === 201) {
+          toast.success(resposta.data.mensagem);
+        }
+      })
+      .catch((erro) => {
+        if (erro.response) {
+          var resposta = erro.response;
+          if (resposta.status === 400 || resposta.status === 409) {
+            toast.warning(erro.response.data.erro);
           }
-        })
-        .catch((error) => console.log(error));
-    }
+        } else {
+          toast.error("Erro de comunicação com API");
+        }
+      });
   }
 
   return (
@@ -209,7 +222,9 @@ export default function Cadastro() {
           <div className="form-group">
             <input
               type={visibilidadeConfSenha ? "text" : "password"}
-              className="form-control"
+              className={
+                "form-control " + (confirmarSenha.erro ? "border-danger" : "")
+              }
               id="inputConfirmarSenha"
               name="confirmar_senha"
               value={confirmarSenha.valor}
@@ -264,7 +279,7 @@ export default function Cadastro() {
             <div className="form-group">
               <input
                 type="text"
-                className="form-control"
+                className={"form-control " + (cpf.erro ? "border-danger" : "")}
                 id="inputCpf"
                 name="cpf"
                 placeholder="Seu CPF"
@@ -273,11 +288,16 @@ export default function Cadastro() {
                   guardarCpf(event.target.value);
                 }}
               />
+              {cpf.erro !== "" && (
+                <small className="pl-1 text-danger m-1">{cpf.erro}</small>
+              )}
             </div>
             <div className="form-group">
               <input
                 type="text"
-                className="form-control"
+                className={
+                  "form-control " + (nomeSocial.erro ? "border-danger" : "")
+                }
                 id="inputNomeSocial"
                 name="nome_social"
                 placeholder="Seu nome social"
@@ -287,6 +307,11 @@ export default function Cadastro() {
                   setNomeSocial({ valor, erro: "" });
                 }}
               />
+              {nomeSocial.erro !== "" && (
+                <small className="pl-1 text-danger m-1">
+                  {nomeSocial.erro}
+                </small>
+              )}
             </div>
             <div className="form-group">
               <select

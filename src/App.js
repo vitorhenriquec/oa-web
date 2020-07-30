@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./App.css";
 
 import Contexto from "./AppContext";
@@ -39,6 +42,17 @@ function App() {
         <Router>
           <MenuLateral />
           <div className=" container-fluid p-0">
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss={false}
+              draggable
+              pauseOnHover
+            />
             <Cabecalho />
             <div
               className={
