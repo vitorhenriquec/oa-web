@@ -166,7 +166,7 @@ export default function Cadastro() {
         <h3 className="mb-3">Cadastro</h3>
       </div>
       <form id="formLogin" className="m-auto text-justify" onSubmit={cadastrar}>
-        <div className="dadosObrigatorios p-4 bg-light rounded">
+        <div className="dadosObrigatorios p-4 bg-light rounded shadow">
           <h5 className="mb-3">Dados obrigatórios :</h5>
           <div className="form-group">
             <input
@@ -265,7 +265,7 @@ export default function Cadastro() {
             )}
           </div>
         </div>
-        <div className="dadosOpcionais mt-4 mb-4 p-4 bg-light rounded">
+        <div className="dadosOpcionais mt-4 mb-4 p-4 bg-light rounded shadow">
           <h5
             className="mb-3"
             onClick={(event) => setDadosOpcionaisAtivo(!dadosOpcionaisAtivo)}
