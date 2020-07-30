@@ -71,7 +71,9 @@ export default function Cadastro() {
     var erro = "";
     const { valor } = confirmarSenha;
     if (valor === "") {
-      erro = "Senha não pode ser vázia";
+      erro = "Confirmação de senha não pode ser vazia";
+    } else if (valor.length < 6) {
+      erro = "Senha não deve ter menos de seis caracteres";
     } else if (valor !== senha.valor) {
       erro = "Senha e sua confirmação não coincidem";
     }
@@ -183,7 +185,9 @@ export default function Cadastro() {
               required
             />
             {nome.erro !== "" && (
-              <small className="pl-1 text-danger m-1">{nome.erro}</small>
+              <small className="pl-1 text-danger font-weight-bold m-1">
+                {nome.erro}
+              </small>
             )}
           </div>
           <div className="form-group">
@@ -201,7 +205,9 @@ export default function Cadastro() {
               required
             />
             {email.erro !== "" && (
-              <small className="pl-1 text-danger m-1">{email.erro}</small>
+              <small className="pl-1 text-danger font-weight-bold m-1">
+                {email.erro}
+              </small>
             )}
           </div>
           <div className="form-group">
@@ -228,7 +234,9 @@ export default function Cadastro() {
               onClick={(event) => setVisibilidadeSenha(!visibilidadeSenha)}
             ></i>
             {senha.erro !== "" && (
-              <small className="pl-1 text-danger m-1">{senha.erro}</small>
+              <small className="pl-1 text-danger font-weight-bold m-1">
+                {senha.erro}
+              </small>
             )}
           </div>
           <div className="form-group">
@@ -259,7 +267,7 @@ export default function Cadastro() {
               }
             ></i>
             {confirmarSenha.erro !== "" && (
-              <small className="pl-1 text-danger m-1">
+              <small className="pl-1 text-danger font-weight-bold m-1">
                 {confirmarSenha.erro}
               </small>
             )}
@@ -301,7 +309,9 @@ export default function Cadastro() {
                 }}
               />
               {cpf.erro !== "" && (
-                <small className="pl-1 text-danger m-1">{cpf.erro}</small>
+                <small className="pl-1 text-danger font-weight-bold m-1">
+                  {cpf.erro}
+                </small>
               )}
             </div>
             <div className="form-group">
@@ -320,7 +330,7 @@ export default function Cadastro() {
                 }}
               />
               {nomeSocial.erro !== "" && (
-                <small className="pl-1 text-danger m-1">
+                <small className="pl-1 text-danger font-weight-bold m-1">
                   {nomeSocial.erro}
                 </small>
               )}
