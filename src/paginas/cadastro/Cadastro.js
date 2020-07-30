@@ -106,6 +106,17 @@ export default function Cadastro() {
     validarNomeSocial();
   }
 
+  function resetarCampos() {
+    const valor = "";
+    const erro = "";
+    setNome({ valor, erro });
+    setEmail({ valor, erro });
+    setSenha({ valor, erro });
+    setConfirmarSenha({ valor, erro });
+    setCpf({ valor, erro });
+    setSexo({ valor: "0", erro });
+  }
+
   function cadastrar(event) {
     event.preventDefault();
     validarCampos();
@@ -135,6 +146,7 @@ export default function Cadastro() {
         if (resposta.status === 201) {
           toast.success(resposta.data.mensagem);
         }
+        resetarCampos();
       })
       .catch((erro) => {
         if (erro.response) {
