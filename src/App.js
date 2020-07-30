@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./App.css";
 
 import Contexto from "./AppContext";
@@ -8,7 +11,6 @@ import AcessibilidadeLibras from "./layout/AcessbilidadeLibras";
 import Cabecalho from "./layout/Cabecalho";
 import Rodape from "./layout/Rodape";
 import MenuLateral from "./layout/MenuLateral";
-import Mensagem from "./layout/Mensagem";
 
 import Inicio from "./paginas/inicio/Inicio";
 import Sobre from "./paginas/sobre/Sobre";
@@ -24,7 +26,6 @@ function App() {
   const [librasAtivo, setLibrasAtivo] = useState(false);
   const [menuAberto, setMenuAberto] = useState(true);
   const [itemAtual, setItemAtual] = useState("");
-  const [mensagens, setMensagens] = useState([]);
 
   return (
     <div className="App wrapper">
@@ -36,31 +37,28 @@ function App() {
           setMenuAberto,
           itemAtual,
           setItemAtual,
-          mensagens,
-          setMensagens,
         }}
       >
         <Router>
           <MenuLateral />
           <div className=" container-fluid p-0">
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss={false}
+              draggable
+              pauseOnHover
+            />
             <Cabecalho />
             <div
               className={
                 window.innerWidth < 414 ? "conteudo p-1" : "conteudo p-2"
               }
             >
-              <div className="w-50 mr-auto ml-auto">
-                {mensagens.map((mensagem) => {
-                  return (
-                    <Mensagem
-                      titulo={mensagem.titulo}
-                      texto={mensagem.texto}
-                      tipo={mensagem.tipo}
-                      ocultarAposTempo={mensagem.ocultarAposTempo}
-                    />
-                  );
-                })}
-              </div>
               <Switch>
                 <Route path="/" exact={true} component={Inicio} />
                 <Route path="/sobre" exact={true} component={Sobre} />
