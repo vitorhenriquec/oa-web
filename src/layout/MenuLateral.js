@@ -100,7 +100,7 @@ export default function MenuLateral(props) {
   }
 
   function nomeAbreviado() {
-    var nomes = usuario.info.nome.split(" ");
+    var nomes = usuario.nome.split(" ");
     var inicias = "";
     for (const indice in nomes) {
       if (indice < 2) {
@@ -141,7 +141,7 @@ export default function MenuLateral(props) {
             </div>
           </div>
           <div className="m-2">
-            Bem-vindo(a), <b>{usuario.info.nome}</b>
+            Bem-vindo(a), <b>{usuario.nome}</b>
           </div>
         </div>
       )}

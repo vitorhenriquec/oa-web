@@ -1,9 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-
-import Contexto from "../../AppContext";
 
 import "./Login.css";
 
@@ -11,8 +9,6 @@ const API_URL = process.env.REACT_APP_API_URL;
 const APP_URL = process.env.REACT_APP_APP_URL;
 
 export default function Login() {
-  const { setUsuario } = useContext(Contexto);
-
   const [visibilidadeSenha, setVisibilidadeSenha] = useState(false);
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -23,10 +19,8 @@ export default function Login() {
       .post(API_URL + "login/", { email, senha })
       .then((resposta) => {
         if (resposta) {
-          const usuario = resposta.data;
-          localStorage.setItem("usuario", JSON.stringify(usuario));
-          setUsuario(resposta.data);
-          toast.success("Usuário logado");
+          const { jwtToken } = resposta.data;
+          localStorage.setItem("jwtToken", jwtToken);
           window.location.replace(APP_URL + "");
         }
       })

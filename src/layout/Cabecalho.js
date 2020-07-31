@@ -24,7 +24,7 @@ export default function Cabecalho() {
 
   function sair(event) {
     event.preventDefault();
-    localStorage.removeItem("usuario");
+    localStorage.removeItem("jwtToken");
     setUsuario({});
     window.location.replace(APP_URL + "login");
   }

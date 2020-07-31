@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
@@ -21,6 +22,8 @@ import Manual from "./paginas/manual/Manual";
 import Login from "./paginas/login/Login";
 import Cadastro from "./paginas/cadastro/Cadastro";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function App() {
   const [librasAtivo, setLibrasAtivo] = useState(false);
   const [menuAberto, setMenuAberto] = useState(true);
@@ -28,9 +31,10 @@ function App() {
   const [usuario, setUsuario] = useState({});
 
   useEffect(() => {
-    const usuarioLogado = localStorage.getItem("usuario");
-    if (usuarioLogado) {
-      setUsuario(JSON.parse(usuarioLogado));
+    const jwtToken = localStorage.getItem("jwtToken");
+
+    if (jwtToken) {
+      atualizarInformacoes(jwtToken);
     }
 
     const acessbilidadeLibrasAtivo = localStorage.getItem("librasAtivo");
@@ -40,8 +44,26 @@ function App() {
     );
   }, []);
 
+  function atualizarInformacoes(jwtToken) {
+    if (jwtToken) {
+      axios.defaults.headers.common = {
+        Authorization: `Bearer ${jwtToken}`,
+      };
+
+      axios
+        .get(API_URL + "usuario/recuperarInformacoes")
+        .then((resposta) => {
+          console.log(resposta.data);
+          setUsuario(resposta.data);
+        })
+        .catch((erro) => {
+          console.log(erro.response);
+        });
+    }
+  }
+
   function usuarioLogado() {
-    return Object.keys(usuario).length !== 0 && usuario.jwtToken;
+    return Object.keys(usuario).length !== 0;
   }
 
   return (
