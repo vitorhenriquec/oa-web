@@ -70,13 +70,15 @@ export default function Cabecalho() {
             <i className="fa fa-sign-language fa-lg"></i>
           </button>
         )}
-        <button
-          type="button"
-          title="Ver Notificações"
-          className="btn btn-secondary mr-2 pt-2 pb-2"
-        >
-          <i className="fa fa-bell fa-lg"></i>
-        </button>
+        {usuarioLogado() && (
+          <button
+            type="button"
+            title="Ver Notificações"
+            className="btn btn-secondary mr-2 pt-2 pb-2"
+          >
+            <i className="fa fa-bell fa-lg"></i>
+          </button>
+        )}
         {!usuarioLogado() && (
           <Link
             to="/login"

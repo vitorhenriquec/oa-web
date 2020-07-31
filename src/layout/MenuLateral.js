@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import "./MenuLateral.css";
-import iconeUsuario from "../recursos/img/icone-usuario.svg";
 
 import Contexto from "../AppContext";
 
