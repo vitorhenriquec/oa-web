@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,10 +22,27 @@ import Login from "./paginas/login/Login";
 import Cadastro from "./paginas/cadastro/Cadastro";
 
 function App() {
-  //Armenar escolha no storage do navegador
   const [librasAtivo, setLibrasAtivo] = useState(false);
   const [menuAberto, setMenuAberto] = useState(true);
   const [itemAtual, setItemAtual] = useState("");
+  const [usuario, setUsuario] = useState({});
+
+  useEffect(() => {
+    const usuarioLogado = localStorage.getItem("usuario");
+    if (usuarioLogado) {
+      setUsuario(JSON.parse(usuarioLogado));
+    }
+
+    const acessbilidadeLibrasAtivo = localStorage.getItem("librasAtivo");
+
+    setLibrasAtivo(
+      acessbilidadeLibrasAtivo !== null ? acessbilidadeLibrasAtivo : false
+    );
+  }, []);
+
+  function usuarioLogado() {
+    return Object.keys(usuario).length !== 0 && usuario.jwtToken;
+  }
 
   return (
     <div className="App wrapper">
@@ -37,6 +54,9 @@ function App() {
           setMenuAberto,
           itemAtual,
           setItemAtual,
+          usuario,
+          setUsuario,
+          usuarioLogado,
         }}
       >
         <Router>
@@ -68,14 +88,20 @@ function App() {
                   exact={true}
                   component={Publicacoes}
                 />
-                <Route
-                  path="/planos"
-                  exact={true}
-                  component={PlanosPublicados}
-                />
+                {usuarioLogado() && (
+                  <Route
+                    path="/planos"
+                    exact={true}
+                    component={PlanosPublicados}
+                  />
+                )}
                 <Route path="/manual" exact={true} component={Manual} />
-                <Route path="/login" exact={true} component={Login} />
-                <Route path="/cadastro" exact={true} component={Cadastro} />
+                {!usuarioLogado() && (
+                  <Route path="/login" exact={true} component={Login} />
+                )}
+                {!usuarioLogado() && (
+                  <Route path="/cadastro" exact={true} component={Cadastro} />
+                )}
               </Switch>
             </div>
             <Rodape />

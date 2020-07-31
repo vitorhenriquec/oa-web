@@ -353,17 +353,6 @@ export default function Cadastro() {
                 <option value="3">Feminino</option>
               </select>
             </div>
-            <div className="form-group text-justify">
-              <label htmlFor="inputFoto ">
-                <b>Sua foto de perfil: </b>
-              </label>
-              <input
-                type="file"
-                className="form-control-file"
-                id="inputFoto"
-                accept="image/*"
-              />
-            </div>
           </div>
         </div>
         <button

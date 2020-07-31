@@ -11,8 +11,6 @@ export default function Sobre() {
           <iframe
             title="Video de apresentação"
             className="videoSobre"
-            height="300"
-            width="580"
             src="https://www.youtube.com/embed/oH3omNV9UUU"
             frameBorder="0"
             allow="autoplay; encrypted-media"

@@ -2,10 +2,17 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Contexto from "../AppContext";
 
+const APP_URL = process.env.REACT_APP_APP_URL;
+
 export default function Cabecalho() {
-  const { librasAtivo, setLibrasAtivo, menuAberto, setMenuAberto } = useContext(
-    Contexto
-  );
+  const {
+    librasAtivo,
+    setLibrasAtivo,
+    menuAberto,
+    setMenuAberto,
+    setUsuario,
+    usuarioLogado,
+  } = useContext(Contexto);
 
   useEffect(() => {
     if (!menuAberto) {
@@ -14,6 +21,13 @@ export default function Cabecalho() {
       document.getElementById("menuLateral").classList.remove("desativar");
     }
   }, [menuAberto]);
+
+  function sair(event) {
+    event.preventDefault();
+    localStorage.removeItem("usuario");
+    setUsuario({});
+    window.location.replace(APP_URL + "login");
+  }
 
   return (
     <div className="w-100 p-2 bg-light m-0">
@@ -45,7 +59,13 @@ export default function Cabecalho() {
                 ? "btn btn-dark-blue mr-2 text-white pt-2 pb-2"
                 : "btn mr-2 text-dark pt-2 pb-2"
             }
-            onClick={() => setLibrasAtivo(!librasAtivo)}
+            onClick={(event) => {
+              event.preventDefault();
+              !librasAtivo
+                ? localStorage.setItem("librasAtivo", true)
+                : localStorage.removeItem("librasAtivo");
+              setLibrasAtivo(!librasAtivo);
+            }}
           >
             <i className="fa fa-sign-language fa-lg"></i>
           </button>
@@ -53,17 +73,30 @@ export default function Cabecalho() {
         <button
           type="button"
           title="Ver Notificações"
-          className="btn btn-danger mr-2 pt-2 pb-2"
+          className="btn btn-secondary mr-2 pt-2 pb-2"
         >
           <i className="fa fa-bell fa-lg"></i>
         </button>
-        <Link
-          to="/login"
-          type="button"
-          className="btn btn-primary pt-2 pb-2 text-white"
-        >
-          <i className="fa fa-sign-in-alt fa-lg"></i> Entrar
-        </Link>
+        {!usuarioLogado() && (
+          <Link
+            to="/login"
+            type="button"
+            className="btn btn-primary pt-2 pb-2 text-white"
+            title="Entrar"
+          >
+            <i className="fa fa-sign-in-alt fa-lg"></i> Entrar
+          </Link>
+        )}
+        {usuarioLogado() && (
+          <button
+            type="button"
+            className="btn btn-danger pt-2 pb-2 text-white"
+            onClick={sair}
+            title="Sair"
+          >
+            <i className="fa fa-sign-out-alt fa-lg"></i> Sair
+          </button>
+        )}
       </div>
     </div>
   );

@@ -86,3 +86,22 @@ a[data-toggle="collapse"] {
   right: 20px;
   transform: translateY(-50%);
 }
+
+#iconeSemfoto {
+  width: 80%;
+  height: 150px;
+}
+
+#iconeSemfoto > h1 {
+  padding-top: 30%;
+}
+
+@media (max-width: 404px) {
+  #iconeSemfoto {
+    height: 170px;
+  }
+
+  #iconeSemfoto > h1 {
+    padding-top: 25%;
+  }
+}
