@@ -2,16 +2,14 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Contexto from "../AppContext";
 
-const APP_URL = process.env.REACT_APP_APP_URL;
-
 export default function Cabecalho() {
   const {
     librasAtivo,
     setLibrasAtivo,
     menuAberto,
     setMenuAberto,
-    setUsuario,
     usuarioLogado,
+    apagandoToken,
   } = useContext(Contexto);
 
   useEffect(() => {
@@ -24,9 +22,7 @@ export default function Cabecalho() {
 
   function sair(event) {
     event.preventDefault();
-    localStorage.removeItem("jwtToken");
-    setUsuario({});
-    window.location.replace(APP_URL + "login");
+    apagandoToken();
   }
 
   return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -23,6 +23,7 @@ import Login from "./paginas/login/Login";
 import Cadastro from "./paginas/cadastro/Cadastro";
 
 const API_URL = process.env.REACT_APP_API_URL;
+const APP_URL = process.env.REACT_APP_APP_URL;
 
 function App() {
   const [librasAtivo, setLibrasAtivo] = useState(false);
@@ -57,9 +58,21 @@ function App() {
           setUsuario(resposta.data);
         })
         .catch((erro) => {
-          console.log(erro.response);
+          if (erro.response) {
+            var resposta = erro.response;
+            if (resposta.status === 401) {
+              apagandoToken();
+            }
+          }
         });
     }
+  }
+
+  function apagandoToken() {
+    localStorage.removeItem("jwtToken");
+    setUsuario({});
+    toast.error("Logout feito");
+    window.location.replace(APP_URL + "login");
   }
 
   function usuarioLogado() {
@@ -79,6 +92,7 @@ function App() {
           usuario,
           setUsuario,
           usuarioLogado,
+          apagandoToken,
         }}
       >
         <Router>
