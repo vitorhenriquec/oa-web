@@ -21,6 +21,7 @@ import PlanosPublicados from "./paginas/planos/PlanosPublicados";
 import Manual from "./paginas/manual/Manual";
 import Login from "./paginas/login/Login";
 import Cadastro from "./paginas/cadastro/Cadastro";
+import ListaUsuarios from "./paginas/usuario/ListaUsuarios";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const APP_URL = process.env.REACT_APP_APP_URL;
@@ -54,7 +55,6 @@ function App() {
       axios
         .get(API_URL + "usuario/recuperarInformacoes")
         .then((resposta) => {
-          console.log(resposta.data);
           setUsuario(resposta.data);
         })
         .catch((erro) => {
@@ -77,6 +77,10 @@ function App() {
 
   function usuarioLogado() {
     return Object.keys(usuario).length !== 0;
+  }
+
+  function admin() {
+    return usuario.papel === 1;
   }
 
   return (
@@ -131,6 +135,15 @@ function App() {
                     component={PlanosPublicados}
                   />
                 )}
+
+                {usuarioLogado() && admin() && (
+                  <Route
+                    path="/usuarios"
+                    exact={true}
+                    component={ListaUsuarios}
+                  />
+                )}
+
                 <Route path="/manual" exact={true} component={Manual} />
                 {!usuarioLogado() && (
                   <Route path="/login" exact={true} component={Login} />

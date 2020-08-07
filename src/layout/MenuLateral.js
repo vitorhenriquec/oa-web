@@ -89,6 +89,14 @@ export default function MenuLateral(props) {
         },
       ],
     },
+    {
+      denominacao: "Usuários",
+      icone: "fa-users",
+      link: "/usuarios",
+      identificador: "usuarios",
+      apenasUsuarioLogado: true,
+      subAbas: [],
+    },
   ];
 
   function mostrarOpcao(apenasUsuarioLogado) {
