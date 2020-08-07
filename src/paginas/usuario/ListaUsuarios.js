@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import Carregamento from "../../layout/Carregamento";
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 export default function ListaUsuario() {
@@ -30,6 +32,7 @@ export default function ListaUsuario() {
   return (
     <div className="text-center mr-auto ml-auto w-90">
       <h1 className="pt-4 pb-2">Usuários</h1>
+      {carregando && <Carregamento />}
       {!carregando && (
         <table className="table table-hover mt-5 text-justify">
           <thead>
