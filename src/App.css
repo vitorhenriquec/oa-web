@@ -63,8 +63,8 @@ a:hover {
   width: 70% !important;
 }
 
-.nav-pills .nav-link.desativar,
+.nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: white;
-  background-color: #2196f3 !important;
+  color: #fff;
+  background-color: #2196f3;
 }

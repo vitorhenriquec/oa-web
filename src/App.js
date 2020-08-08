@@ -18,6 +18,7 @@ import Sobre from "./paginas/sobre/Sobre";
 import Equipe from "./paginas/equipe/Equipe";
 import Publicacoes from "./paginas/publicacoes/Publicacoes";
 import PlanosPublicados from "./paginas/planos/PlanosPublicados";
+import NovoPlano from "./paginas/planos/NovoPlano";
 import Manual from "./paginas/manual/Manual";
 import Login from "./paginas/login/Login";
 import Cadastro from "./paginas/cadastro/Cadastro";
@@ -151,6 +152,11 @@ function App() {
                 {!usuarioLogado() && (
                   <Route path="/cadastro" exact={true} component={Cadastro} />
                 )}
+                <Route
+                  path="/planoAula/novo"
+                  exact={true}
+                  component={NovoPlano}
+                />
               </Switch>
             </div>
             <Rodape />
