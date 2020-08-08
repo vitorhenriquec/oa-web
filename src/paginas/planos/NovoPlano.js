@@ -98,7 +98,6 @@ export default function NovoPlano() {
         />
         <div id="acoes" className="bg-light p-3 mt-2 w-100 rounded">
           <button
-            role="button"
             className="btn btn-primary pl-4 pr-4"
             title="Salvar plano"
             data-container="body"
@@ -108,7 +107,6 @@ export default function NovoPlano() {
             <i className="fa fa-save fa-lg"></i> Salvar
           </button>
           <button
-            role="button"
             className="btn btn-secondary pl-4 pr-4 ml-2"
             title="Compartilhar plano"
             data-container="body"
@@ -118,7 +116,6 @@ export default function NovoPlano() {
             <i className="fa fa-share fa-lg"></i> Compartilhar
           </button>
           <button
-            role="button"
             className="btn btn-dark pl-4 pr-4 ml-2"
             title="Histórico do plano"
             data-container="body"

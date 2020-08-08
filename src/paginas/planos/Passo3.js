@@ -8,7 +8,6 @@ export default function Passo3() {
     <div className="bg-light p-3 rounded shadow-sm">
       <Versao />
       <button
-        role="button"
         className="btn btn-secondary pl-4 pr-4 mb-3"
         title="Auxílio na escrita"
         data-container="body"
