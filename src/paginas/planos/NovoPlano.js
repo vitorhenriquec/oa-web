@@ -97,38 +97,36 @@ export default function NovoPlano() {
           setPassoAtual={setPassoAtual}
         />
         <div id="acoes" className="bg-light p-3 mt-2 w-100 rounded">
-          <div className="">
-            <button
-              role="button"
-              className="btn btn-primary pl-4 pr-4"
-              title="Salvar plano"
-              data-container="body"
-              data-toggle="popover"
-              data-content="Clique aqui para salvar o plano"
-            >
-              <i className="fa fa-save fa-lg"></i> Salvar
-            </button>
-            <button
-              role="button"
-              className="btn btn-secondary pl-4 pr-4 ml-2"
-              title="Compartilhar plano"
-              data-container="body"
-              data-toggle="popover"
-              data-content="Clique para poder compartilhar o plano."
-            >
-              <i className="fa fa-share fa-lg"></i> Compartilhar
-            </button>
-            <button
-              role="button"
-              className="btn btn-dark pl-4 pr-4 ml-2"
-              title="Histórico do plano"
-              data-container="body"
-              data-toggle="popover"
-              data-content="Clique para ver histórico do plano."
-            >
-              <i className="fa fa-history fa-lg"></i> Histórico
-            </button>
-          </div>
+          <button
+            role="button"
+            className="btn btn-primary pl-4 pr-4"
+            title="Salvar plano"
+            data-container="body"
+            data-toggle="popover"
+            data-content="Clique aqui para salvar o plano"
+          >
+            <i className="fa fa-save fa-lg"></i> Salvar
+          </button>
+          <button
+            role="button"
+            className="btn btn-secondary pl-4 pr-4 ml-2"
+            title="Compartilhar plano"
+            data-container="body"
+            data-toggle="popover"
+            data-content="Clique para poder compartilhar o plano."
+          >
+            <i className="fa fa-share fa-lg"></i> Compartilhar
+          </button>
+          <button
+            role="button"
+            className="btn btn-dark pl-4 pr-4 ml-2"
+            title="Histórico do plano"
+            data-container="body"
+            data-toggle="popover"
+            data-content="Clique para ver histórico do plano."
+          >
+            <i className="fa fa-history fa-lg"></i> Histórico
+          </button>
         </div>
       </div>
     </div>

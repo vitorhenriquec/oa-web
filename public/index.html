@@ -11,8 +11,12 @@
     <script>
       $(function () {
         $('[data-toggle="popover"]').popover({
-          placement : 'bottom',
-          trigger : 'hover'
+          'placement' : 'bottom',
+          'trigger' : 'hover',
+          'delay': { 
+            'show': '250', 
+            'hide': '50'
+          },
         })
       });
     </script>

@@ -5,7 +5,7 @@ import Versao from "./Versao";
 
 export default function Passo3() {
   return (
-    <div className="bg-light p-3 rounded">
+    <div className="bg-light p-3 rounded shadow-sm">
       <Versao />
       <button
         role="button"
