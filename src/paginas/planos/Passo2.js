@@ -18,7 +18,9 @@ export default function Passo2() {
     setOasSelecionados(novosOasSelecionados);
 
     var novosOas = oas;
-    delete novosOas[indice];
+    novosOas = novosOas.filter((oasSelecionado) => {
+      return oasSelecionado !== oa;
+    });
     setOas(novosOas);
   }
 
