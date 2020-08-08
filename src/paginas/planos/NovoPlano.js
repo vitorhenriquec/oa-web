@@ -27,7 +27,7 @@ export default function NovoPlano() {
               aria-controls="passo1"
               aria-selected="true"
               onClick={(event) => {
-                setPassoAtual(0);
+                setPassoAtual(1);
               }}
             >
               1º Passo
@@ -43,7 +43,7 @@ export default function NovoPlano() {
               aria-controls="passo2"
               aria-selected="false"
               onClick={(event) => {
-                setPassoAtual(1);
+                setPassoAtual(2);
               }}
             >
               2º Passo
@@ -59,7 +59,7 @@ export default function NovoPlano() {
               aria-controls="passo3"
               aria-selected="false"
               onClick={(event) => {
-                setPassoAtual(2);
+                setPassoAtual(3);
               }}
             >
               3º Passo
