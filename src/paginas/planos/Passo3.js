@@ -33,6 +33,7 @@ export default function Passo3() {
         initialValue="<p>Texto inicial</p>"
         init={{
           height: 500,
+          language: "pt_BR",
           menubar: false,
           plugins: [
             "advlist autolink lists link image charmap print preview anchor",
