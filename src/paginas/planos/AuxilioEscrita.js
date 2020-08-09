@@ -73,7 +73,7 @@ export default function AuxilioExcrita() {
               className="btn btn-secondary"
               data-dismiss="modal"
             >
-              Fechar
+              <i className="fa fa-times fa-lg"></i> Fechar
             </button>
           </div>
         </div>

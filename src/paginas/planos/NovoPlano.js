@@ -7,6 +7,7 @@ import MovimentacaoPaginas from "./MovimentacaoPaginas";
 import AuxilioExcrita from "./AuxilioEscrita";
 import Compartilhar from "./Compartilhar";
 import EnviarRevisao from "./EnviarRevisao";
+import Historico from "./Historico";
 
 export default function NovoPlano() {
   const [passoAtual, setPassoAtual] = useState(1);
@@ -16,6 +17,7 @@ export default function NovoPlano() {
       <AuxilioExcrita />
       <Compartilhar />
       <EnviarRevisao />
+      <Historico />
       <h1 className="pt-4 pb-2">Novo plano</h1>
       <div className="w-100 text-justify">
         <ul
@@ -105,7 +107,7 @@ export default function NovoPlano() {
         <div id="acoes" className="bg-light p-2 mt-2 w-100 rounded">
           <button
             type="button"
-            className="btn btn-primary pl-4 pr-4"
+            className="btn btn-primary pl-4 pr-4 m-1"
             title="Salvar"
           >
             <div
@@ -118,8 +120,10 @@ export default function NovoPlano() {
           </button>
           <button
             type="button"
-            className="btn btn-dark pl-4 pr-4 ml-2"
+            className="btn btn-dark pl-4 pr-4 m-1"
             title="Histórico"
+            data-toggle="modal"
+            data-target="#modalHistorico"
           >
             <div
               data-container="body"
@@ -131,7 +135,7 @@ export default function NovoPlano() {
           </button>
           <button
             type="button"
-            className="btn btn-secondary pl-4 pr-4 ml-2"
+            className="btn btn-secondary pl-4 pr-4 m-1"
             title="Compartilhar"
             data-toggle="modal"
             data-target="#modalCompartilhar"
@@ -147,7 +151,7 @@ export default function NovoPlano() {
           </button>
           <button
             type="button"
-            className="btn btn-dark float-right"
+            className="btn btn-secondary m-1"
             title="Enviar para revisão"
             data-toggle="modal"
             data-target="#modalEnviarRevisao"
@@ -155,7 +159,7 @@ export default function NovoPlano() {
             <div
               data-container="body"
               data-toggle="popover"
-              data-content="Clique para enviar este plano para revisão."
+              data-content="Clique para enviar esse plano para revisão."
             >
               <i className="fa fa-clipboard-check fa-lg"></i> Enviar para
               Revisão
