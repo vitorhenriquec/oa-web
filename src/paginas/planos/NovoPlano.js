@@ -5,6 +5,8 @@ import Passo2 from "./Passo2";
 import Passo3 from "./Passo3";
 import MovimentacaoPaginas from "./MovimentacaoPaginas";
 import AuxilioExcrita from "./AuxilioEscrita";
+import Compartilhar from "./Compartilhar";
+import EnviarRevisao from "./EnviarRevisao";
 
 export default function NovoPlano() {
   const [passoAtual, setPassoAtual] = useState(1);
@@ -12,6 +14,8 @@ export default function NovoPlano() {
   return (
     <div className="text-center mr-auto ml-auto w-90">
       <AuxilioExcrita />
+      <Compartilhar />
+      <EnviarRevisao />
       <h1 className="pt-4 pb-2">Novo plano</h1>
       <div className="w-100 text-justify">
         <ul
@@ -103,41 +107,59 @@ export default function NovoPlano() {
             type="button"
             className="btn btn-primary pl-4 pr-4"
             title="Salvar"
-            data-container="body"
-            data-toggle="popover"
-            data-content="Clique aqui para salvar o plano"
           >
-            <i className="fa fa-save fa-lg"></i> Salvar
+            <div
+              data-container="body"
+              data-toggle="popover"
+              data-content="Clique aqui para salvar o plano"
+            >
+              <i className="fa fa-save fa-lg"></i> Salvar
+            </div>
           </button>
           <button
             type="button"
             className="btn btn-dark pl-4 pr-4 ml-2"
             title="Histórico"
-            data-container="body"
-            data-toggle="popover"
-            data-content="Clique para ver histórico do plano."
           >
-            <i className="fa fa-history fa-lg"></i> Histórico
+            <div
+              data-container="body"
+              data-toggle="popover"
+              data-content="Clique para ver histórico do plano."
+            >
+              <i className="fa fa-history fa-lg"></i> Histórico
+            </div>
           </button>
           <button
             type="button"
             className="btn btn-secondary pl-4 pr-4 ml-2"
             title="Compartilhar"
-            data-container="body"
-            data-toggle="popover"
-            data-content="Clique para poder compartilhar o plano."
+            data-toggle="modal"
+            data-target="#modalCompartilhar"
           >
-            <i className="fa fa-share-alt-square fa-lg"></i> Compartilhar
+            <div
+              data-container="body"
+              data-toggle="popover"
+              data-content="Clique para poder compartilhar o plano."
+            >
+              <i className="fa fa-share-alt-square fa-lg"></i>
+              Compartilhar
+            </div>
           </button>
           <button
             type="button"
             className="btn btn-dark float-right"
             title="Enviar para revisão"
-            data-container="body"
-            data-toggle="popover"
-            data-content="Clique para enviar este plano para revisão."
+            data-toggle="modal"
+            data-target="#modalEnviarRevisao"
           >
-            <i className="fa fa-clipboard-check fa-lg"></i> Enviar para Revisão
+            <div
+              data-container="body"
+              data-toggle="popover"
+              data-content="Clique para enviar este plano para revisão."
+            >
+              <i className="fa fa-clipboard-check fa-lg"></i> Enviar para
+              Revisão
+            </div>
           </button>
         </div>
       </div>

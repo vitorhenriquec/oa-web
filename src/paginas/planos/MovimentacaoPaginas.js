@@ -26,7 +26,7 @@ export default function MovimentacaoPaginas({ passoAtual, setPassoAtual }) {
   return (
     <div className="movimentacaoPaginas position-relative">
       <i
-        className="fa fa-caret-square-left fa-lg text-primary float-left ml-1"
+        className="fa fa-angle-left fa-lg text-primary float-left ml-1"
         data-container="body"
         data-toggle="popover"
         data-content="Passo anterior"
@@ -36,7 +36,7 @@ export default function MovimentacaoPaginas({ passoAtual, setPassoAtual }) {
         }}
       ></i>
       <i
-        className="fa fa-caret-square-right fa-lg text-primary float-right mr-1"
+        className="fa fa-angle-right fa-lg text-primary float-right mr-1"
         data-container="body"
         data-toggle="popover"
         data-content="Próximo passo"
