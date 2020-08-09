@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
+import Contexto from "../../AppContext";
+
 import Versao from "./Versao";
+import OaSelecionado from "./OaSelecionado";
+import ListaOas from "./ListaOas";
 
 export default function Passo2() {
   const [oas, setOas] = useState([
@@ -39,65 +43,31 @@ export default function Passo2() {
   }
 
   return (
-    <div className="bg-light p-3 rounded shadow-sm">
+    <div className="bg-light p-3 pl-5 pr-5 rounded shadow-sm">
       <Versao />
       <h2 className="mt-2 mb-2">OAs relacionados</h2>
-      <div className="form-group mt-3 p-1">
+      <div className="form-group mt-3">
         <label className="font-weight-bold d-none" htmlFor="buscarOa">
           Nome do OA:
         </label>
         <input
-          placeholder="Procure pelo OA"
+          placeholder="Procure um OA por nome aqui"
           type="text"
           className="form-control"
           id="buscarOa"
         />
       </div>
       <div className="row p-3">
-        <div className="col-6">
-          <h5 className="mb-2">Selecione</h5>
-          <ul className="list-group">
-            {oas.map((oa, indice) => {
-              return (
-                <li key={oa.id} className="list-group-item mb-2">
-                  {oa.denominacao}
-                  <i
-                    className="fa fa-plus fa-lg float-right pt-1 text-primary"
-                    data-container="body"
-                    data-toggle="popover"
-                    data-content="Clique para selecionar este OA."
-                    onClick={(evento) => {
-                      evento.preventDefault();
-                      selecionar(indice);
-                    }}
-                  ></i>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="col-6">
-          <h5>OA(s) selecionado(s)</h5>
-          <ul className="list-group">
-            {oasSelecionados.map((oasSelecionado, indice) => {
-              return (
-                <li className="list-group-item mb-2">
-                  {oasSelecionado.denominacao}
-                  <i
-                    className="fa fa-minus fa-lg float-right pt-1"
-                    data-container="body"
-                    data-toggle="popover"
-                    data-content="Clique para retirar este OA."
-                    onClick={(evento) => {
-                      evento.preventDefault();
-                      retirar(indice);
-                    }}
-                  ></i>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <Contexto.Provider
+          value={{ oasSelecionados, oas, selecionar, retirar }}
+        >
+          <div className="col-6">
+            <ListaOas />
+          </div>
+          <div className="col-6">
+            <OaSelecionado />
+          </div>
+        </Contexto.Provider>
       </div>
     </div>
   );

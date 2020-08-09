@@ -24,36 +24,27 @@ export default function MovimentacaoPaginas({ passoAtual, setPassoAtual }) {
   }
 
   return (
-    <div className="movimentacaoPaginas bg-light pb-5 mt-2 w-100 rounded">
-      <button
-        className="btn float-left"
+    <div className="movimentacaoPaginas position-relative">
+      <i
+        className="fa fa-caret-square-left fa-lg text-primary float-left ml-1"
+        data-container="body"
+        data-toggle="popover"
+        data-content="Passo anterior"
         onClick={(evento) => {
           retornar();
           evento.preventDefault();
         }}
-      >
-        <i
-          className="fa fa-chevron-circle-left fa-lg ml-2 text-primary"
-          data-container="body"
-          data-toggle="popover"
-          data-content="Passo anterior"
-        ></i>
-      </button>
-
-      <button
-        className="btn float-right"
+      ></i>
+      <i
+        className="fa fa-caret-square-right fa-lg text-primary float-right mr-1"
+        data-container="body"
+        data-toggle="popover"
+        data-content="Próximo passo"
         onClick={(evento) => {
           avancar();
           evento.preventDefault();
         }}
-      >
-        <i
-          className="fa fa-chevron-circle-right fa-lg mr-2 text-primary"
-          data-container="body"
-          data-toggle="popover"
-          data-content="Próximo passo"
-        ></i>
-      </button>
+      ></i>
     </div>
   );
 }

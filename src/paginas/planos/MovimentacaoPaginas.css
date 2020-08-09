@@ -1,3 +1,9 @@
+.movimentacaoPaginas {
+  top: 170px;
+}
+
 .movimentacaoPaginas > i {
-  font-size: x-large;
+  padding: 0px;
+  margin: 0px;
+  font-size: xx-large;
 }

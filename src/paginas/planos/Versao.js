@@ -10,6 +10,7 @@ export default function Versao() {
         data-content="Nova versão do plano"
       ></i>
       <button
+        type="button"
         className="btn btn-secondary"
         data-container="body"
         data-toggle="popover"

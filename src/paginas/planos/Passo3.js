@@ -5,16 +5,22 @@ import Versao from "./Versao";
 
 export default function Passo3() {
   return (
-    <div className="bg-light p-3 rounded shadow-sm">
+    <div className="bg-light p-3 pl-5 pr-5 rounded shadow-sm">
       <Versao />
       <button
+        type="button"
         className="btn btn-secondary pl-4 pr-4 mb-3"
         title="Auxílio na escrita"
-        data-container="body"
-        data-toggle="popover"
-        data-content="Clique para ver algumas dicas para auxiliar na escrita."
+        data-toggle="modal"
+        data-target="#modalAuxilioEscrita"
       >
-        <i className="fa fa-hands-helping fa-lg"></i> Auxílio na escrita
+        <div
+          data-container="body"
+          data-toggle="popover"
+          data-content="Clique para ver algumas dicas para auxiliar na escrita."
+        >
+          <i className="fa fa-hands-helping fa-lg"></i> Auxílio na escrita
+        </div>
       </button>
       <div className="form-group p-1">
         <label className="font-weight-bold" htmlFor="planoTitulo">
