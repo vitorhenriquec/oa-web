@@ -48,7 +48,7 @@ export default function Login() {
       </div>
       <form
         id="formLogin"
-        className="m-auto bg-light p-4 rounded shadow"
+        className="m-auto bg-light p-4 rounded shadow-sm"
         onSubmit={logar}
       >
         <div className="form-group">

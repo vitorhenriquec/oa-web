@@ -139,8 +139,8 @@ export default function MenuLateral(props) {
         </button>
       </div>
       {usuarioLogado() && (
-        <div className="w-90 mt-4 text-center">
-          <div id="icone" className="m-1 w-100">
+        <div className="w-100 mt-4 text-center">
+          <div id="icone" className="m-1 w-90 mr-auto ml-auto">
             <div
               id="iconeSemfoto"
               className="ml-auto mr-auto bg-primary rounded-circle text-white font-weight-bold"

@@ -10,7 +10,6 @@ export default function Equipe() {
 
   useEffect(() => {
     const equipeKey = process.env.REACT_APP_EQUIPE_KEY;
-    console.log(equipeKey);
     if (equipeKey && equipeKey !== "") {
       const url =
         "https://spreadsheets.google.com/feeds/list/" +
