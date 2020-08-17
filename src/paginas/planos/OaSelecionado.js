@@ -9,7 +9,7 @@ export default function OaSelecionado() {
       <h5>OA(s) selecionado(s)</h5>
       {oasSelecionados.map((oasSelecionado, indice) => {
         return (
-          <li key={indice} className="list-group-item mb-2">
+          <li key={indice + "selecionados"} className="list-group-item mb-2">
             {oasSelecionado.denominacao}
             <i
               title="Remover"

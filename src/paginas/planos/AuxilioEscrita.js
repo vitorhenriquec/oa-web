@@ -51,7 +51,7 @@ export default function AuxilioExcrita() {
               {verbosAuxiliares.map((verbo, indice) => {
                 return (
                   <div
-                    kye={indice}
+                    key={indice}
                     className="col-4 p-1 mb-2 font-weight-bold text-primary"
                   >
                     {verbo}

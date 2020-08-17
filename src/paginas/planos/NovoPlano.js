@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { toast } from "react-toastify";
+
 import Passo1 from "./Passo1";
 import Passo2 from "./Passo2";
 import Passo3 from "./Passo3";
@@ -105,66 +107,79 @@ export default function NovoPlano() {
           </div>
         </div>
         <div id="acoes" className="bg-light p-2 mt-2 w-100 rounded">
-          <button
-            type="button"
-            className="btn btn-primary pl-4 pr-4 m-1"
-            title="Salvar"
+          <div
+            className="btn-group"
+            role="group"
+            aria-label="Ações para o plano de aula"
           >
-            <div
-              data-container="body"
-              data-toggle="popover"
-              data-content="Clique aqui para salvar o plano"
+            <button
+              type="button"
+              className="btn btn-primary rounded pl-4 pr-4 m-1"
+              title="Salvar"
+              aria-label="Salvar"
             >
-              <i className="fa fa-save fa-lg"></i> Salvar
-            </div>
-          </button>
-          <button
-            type="button"
-            className="btn btn-dark pl-4 pr-4 m-1"
-            title="Histórico"
-            data-toggle="modal"
-            data-target="#modalHistorico"
-          >
-            <div
-              data-container="body"
-              data-toggle="popover"
-              data-content="Clique para ver histórico do plano."
+              <div
+                data-container="body"
+                data-toggle="popover"
+                data-content="Clique aqui para salvar o plano"
+                onClick={(evento) => {
+                  toast.success("Plano salvo com sucesso");
+                }}
+              >
+                <i className="fa fa-save fa-lg"></i> Salvar
+              </div>
+            </button>
+            <button
+              type="button"
+              className="btn btn-dark rounded pl-4 pr-4 m-1"
+              title="Histórico"
+              data-toggle="modal"
+              data-target="#modalHistorico"
+              aria-label="Histórico do plano"
             >
-              <i className="fa fa-history fa-lg"></i> Histórico
-            </div>
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary pl-4 pr-4 m-1"
-            title="Compartilhar"
-            data-toggle="modal"
-            data-target="#modalCompartilhar"
-          >
-            <div
-              data-container="body"
-              data-toggle="popover"
-              data-content="Clique para poder compartilhar o plano."
+              <div
+                data-container="body"
+                data-toggle="popover"
+                data-content="Clique para ver histórico do plano."
+              >
+                <i className="fa fa-history fa-lg"></i> Histórico
+              </div>
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary rounded pl-4 pr-4 m-1"
+              title="Compartilhar"
+              data-toggle="modal"
+              data-target="#modalCompartilhar"
+              aria-label="Compartilhar do plano"
             >
-              <i className="fa fa-share-alt-square fa-lg"></i>
-              Compartilhar
-            </div>
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary m-1"
-            title="Enviar para revisão"
-            data-toggle="modal"
-            data-target="#modalEnviarRevisao"
-          >
-            <div
-              data-container="body"
-              data-toggle="popover"
-              data-content="Clique para enviar esse plano para revisão."
+              <div
+                data-container="body"
+                data-toggle="popover"
+                data-content="Clique para poder compartilhar o plano."
+              >
+                <i className="fa fa-share-alt-square fa-lg"></i>
+                Compartilhar
+              </div>
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary rounded m-1"
+              title="Enviar para revisão"
+              data-toggle="modal"
+              data-target="#modalEnviarRevisao"
+              aria-label="Enviar para revisão"
             >
-              <i className="fa fa-clipboard-check fa-lg"></i> Enviar para
-              Revisão
-            </div>
-          </button>
+              <div
+                data-container="body"
+                data-toggle="popover"
+                data-content="Clique para enviar esse plano para revisão."
+              >
+                <i className="fa fa-clipboard-check fa-lg"></i> Enviar para
+                Revisão
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>

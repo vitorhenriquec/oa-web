@@ -45,16 +45,14 @@ export default function Passo2() {
   return (
     <div className="bg-light p-3 pl-5 pr-5 rounded shadow-sm">
       <Versao />
-      <h2 className="mt-2 mb-2">OAs relacionados</h2>
+      <h2 className="mt-2 mb-2">OAs utilizados</h2>
       <div className="form-group mt-3">
-        <label className="font-weight-bold d-none" htmlFor="buscarOa">
-          Nome do OA:
-        </label>
         <input
           placeholder="Procure um OA por nome aqui"
           type="text"
           className="form-control"
           id="buscarOa"
+          aria-label="Nome do OA"
         />
       </div>
       <div className="row p-3">

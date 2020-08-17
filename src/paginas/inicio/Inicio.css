@@ -5,12 +5,8 @@
 }
 
 #buscarOA > .form-group > input {
-  width: 80%;
-  display: inline;
-}
-
-#buscarOa > .form-group > button {
-  height: calc(1.5em + 0.75rem + 1px);
+  width: 90%;
+  font-size: 1.25rem;
 }
 
 @media (max-width: 414px) {

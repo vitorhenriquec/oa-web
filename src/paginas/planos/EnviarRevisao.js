@@ -114,13 +114,13 @@ export default function EnviarRevisao() {
             </button>
           </div>
           <div className="modal-body">
-            <p className="text-justify">
+            <div className="text-justify d-block">
               Esse plano será avaliado levando em consideração os seguintes
               itens:
-              <ul class="list-group m-2">
+              <ul className="list-group m-2">
                 {itensRevisao.map((item, indice) => {
                   return (
-                    <li key={indice} class="list-group-item mb-3">
+                    <li key={indice} className="list-group-item mb-3">
                       <h5>{item.titulo}</h5>
                       <p>{item.descricao}</p>
                       {renderizarPossiveisRespostas(item.possiveisRespostas)}
@@ -128,7 +128,7 @@ export default function EnviarRevisao() {
                   );
                 })}
               </ul>
-            </p>
+            </div>
             <div className="w-90 mr-auto ml-auto">
               <button
                 type="button"

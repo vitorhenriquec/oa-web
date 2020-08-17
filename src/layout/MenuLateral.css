@@ -89,19 +89,19 @@ a[data-toggle="collapse"] {
 
 #iconeSemfoto {
   width: 80%;
-  height: 150px;
+  height: 170px;
 }
 
 #iconeSemfoto > h1 {
-  padding-top: 30%;
+  padding-top: 35%;
 }
 
 @media (max-width: 404px) {
   #iconeSemfoto {
-    height: 170px;
+    height: 190px;
   }
 
   #iconeSemfoto > h1 {
-    padding-top: 25%;
+    padding-top: 30%;
   }
 }

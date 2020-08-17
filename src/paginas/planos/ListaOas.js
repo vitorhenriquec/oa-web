@@ -11,7 +11,7 @@ export default function ListaOas() {
       <ul className="list-group">
         {oas.map((oa, indice) => {
           return (
-            <li key={oa.id} className="list-group-item mb-2">
+            <li key={indice + "oas"} className="list-group-item mb-2">
               {oa.denominacao}
               <i
                 title="Selecionar"

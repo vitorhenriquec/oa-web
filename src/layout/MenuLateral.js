@@ -22,35 +22,43 @@ export default function MenuLateral(props) {
       apenasUsuarioLogado: false,
       subAbas: [],
     },
+    // {
+    //   denominacao: "Sobre",
+    //   icone: "fa-info",
+    //   link: "/sobre",
+    //   identificador: "sobre",
+    //   apenasUsuarioLogado: false,
+    //   subAbas: [],
+    // },
+    // {
+    //   denominacao: "Equipe",
+    //   icone: "fa-user-friends",
+    //   link: "/equipe",
+    //   identificador: "equipe",
+    //   apenasUsuarioLogado: false,
+    //   subAbas: [],
+    // },
+    // {
+    //   denominacao: "Publicações",
+    //   icone: "fa-book-open",
+    //   link: "/publicacoes",
+    //   identificador: "publicacoes",
+    //   apenasUsuarioLogado: false,
+    //   subAbas: [],
+    // },
+    // {
+    //   denominacao: "Planos Publicados",
+    //   icone: "fa-file-contract",
+    //   link: "/planos",
+    //   identificador: "planos",
+    //   apenasUsuarioLogado: false,
+    //   subAbas: [],
+    // },
     {
-      denominacao: "Sobre",
-      icone: "fa-info",
-      link: "/sobre",
-      identificador: "sobre",
-      apenasUsuarioLogado: false,
-      subAbas: [],
-    },
-    {
-      denominacao: "Equipe",
-      icone: "fa-user-friends",
-      link: "/equipe",
-      identificador: "equipe",
-      apenasUsuarioLogado: false,
-      subAbas: [],
-    },
-    {
-      denominacao: "Publicações",
-      icone: "fa-book-open",
-      link: "/publicacoes",
-      identificador: "publicacoes",
-      apenasUsuarioLogado: false,
-      subAbas: [],
-    },
-    {
-      denominacao: "Planos Publicados",
-      icone: "fa-file-contract",
-      link: "/planos",
-      identificador: "planos",
+      denominacao: "Blog",
+      icone: "fa-blog",
+      link: "/blog",
+      identificador: "blog",
       apenasUsuarioLogado: false,
       subAbas: [],
     },
@@ -149,7 +157,8 @@ export default function MenuLateral(props) {
             </div>
           </div>
           <div className="m-2">
-            Bem-vindo(a), <b>{usuario.nome}</b>
+            Bem-vindo(a), <br></br>
+            <b>{usuario.nome}</b>
           </div>
         </div>
       )}

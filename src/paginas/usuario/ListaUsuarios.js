@@ -32,35 +32,43 @@ export default function ListaUsuario() {
   return (
     <div className="text-center mr-auto ml-auto w-90">
       <h1 className="pt-4 pb-2">Usuários</h1>
-      {carregando && <Carregamento />}
-      {!carregando && (
-        <table className="table table-hover mt-5 text-justify">
-          <thead>
-            <tr>
-              <th className="border-top-0" scope="col">
-                Nome
-              </th>
-              <th className="border-top-0" scope="col">
-                E-mail
-              </th>
-              <th className="border-top-0" scope="col">
-                Papel
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {usuarios.map((usuario, indice) => {
-              return (
-                <tr key={indice}>
-                  <td>{usuario.nome}</td>
-                  <td>{usuario.email}</td>
-                  <td>{usuario.papel}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      )}
+      <div
+        className={
+          window.innerWidth < 500
+            ? "bg-light pt-2 pb-2 pl-2 pr-2 rounded shadow-sm"
+            : "bg-light pt-2 pb-2 pl-3 pr-3 rounded shadow-sm"
+        }
+      >
+        {carregando && <Carregamento />}
+        {!carregando && (
+          <table className="table table-hover mt-5 text-justify">
+            <thead>
+              <tr>
+                <th className="border-top-0" scope="col">
+                  Nome
+                </th>
+                <th className="border-top-0" scope="col">
+                  E-mail
+                </th>
+                <th className="border-top-0" scope="col">
+                  Papel
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {usuarios.map((usuario, indice) => {
+                return (
+                  <tr key={indice}>
+                    <td>{usuario.nome}</td>
+                    <td>{usuario.email}</td>
+                    <td>{usuario.papel}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 }

@@ -66,7 +66,7 @@ export default function Cabecalho() {
             <i className="fa fa-sign-language fa-lg"></i>
           </button>
         )}
-        {usuarioLogado() && (
+        {/* {usuarioLogado() && (
           <button
             type="button"
             title="Ver Notificações"
@@ -74,7 +74,7 @@ export default function Cabecalho() {
           >
             <i className="fa fa-bell fa-lg"></i>
           </button>
-        )}
+        )} */}
         {!usuarioLogado() && (
           <Link
             to="/login"

@@ -23,6 +23,7 @@ import Manual from "./paginas/manual/Manual";
 import Login from "./paginas/login/Login";
 import Cadastro from "./paginas/cadastro/Cadastro";
 import ListaUsuarios from "./paginas/usuario/ListaUsuarios";
+import MeusPlanos from "./paginas/planos/MeusPlanos";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const APP_URL = process.env.REACT_APP_APP_URL;
@@ -156,6 +157,11 @@ function App() {
                   path="/planoAula/novo"
                   exact={true}
                   component={NovoPlano}
+                />
+                <Route
+                  path="/planoAula/meusPlanos"
+                  exact={true}
+                  component={MeusPlanos}
                 />
               </Switch>
             </div>

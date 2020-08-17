@@ -9,22 +9,21 @@ export default function Inicio() {
         <h6>Objetos de Aprendizagem</h6>
       </div>
       <form id="buscarOA" className="mt-5">
-        <div className="form-group">
+        <div className="form-group d-inline-flex w-100">
           <input
             id="campoBuscaOA"
             type="text"
-            className="form-control pt-2 pb-3"
+            className="form-control"
             placeholder="Digite aqui para pesquisar por um Objeto de Aprendizagem"
+            aria-label="Digite aqui para pesquisar por um Objeto de Aprendizagem"
           />
-          <label htmlFor="campoBuscaOA" className="d-none">
-            Digite aqui para pesquisar por um Objeto de Aprendizagem
-          </label>
           <button
             type="button"
             title="Buscar por um Objeto de Aprendizagem"
             className="btn btn-primary ml-1"
+            title="Buscar pelo OA"
           >
-            <i className="fa fa-search"></i>
+            <i className="fa fa-search fa-lg"></i>
           </button>
         </div>
         <div className="form-group">

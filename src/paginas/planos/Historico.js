@@ -61,7 +61,7 @@ export default function Historico() {
                         aria-controls={"data" + indice}
                         aria-selected="true"
                       >
-                        <i class="fa fa-caret-right fa-lg ml-1"></i>
+                        <i className="fa fa-caret-right fa-lg ml-1"></i>
                         {data}
                       </a>
                     );
@@ -73,6 +73,7 @@ export default function Historico() {
                   {datasHistorico.map((data, indice) => {
                     return (
                       <div
+                        key={indice}
                         className={
                           indice === 0
                             ? "tab-pane fade active show"

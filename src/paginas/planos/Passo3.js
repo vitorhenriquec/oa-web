@@ -13,6 +13,7 @@ export default function Passo3() {
         title="Auxílio na escrita"
         data-toggle="modal"
         data-target="#modalAuxilioEscrita"
+        aria-label="Auxílio na escrita"
       >
         <div
           data-container="body"
