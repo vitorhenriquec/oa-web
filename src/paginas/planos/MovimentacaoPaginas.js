@@ -27,6 +27,7 @@ export default function MovimentacaoPaginas({ passoAtual, setPassoAtual }) {
     <div className="movimentacaoPaginas position-relative">
       <i
         className="fa fa-angle-left fa-lg text-primary float-left ml-1"
+        title="Passo anterior"
         data-container="body"
         data-toggle="popover"
         data-content="Passo anterior"
@@ -39,6 +40,7 @@ export default function MovimentacaoPaginas({ passoAtual, setPassoAtual }) {
         className="fa fa-angle-right fa-lg text-primary float-right mr-1"
         data-container="body"
         data-toggle="popover"
+        title="Próximo passo"
         data-content="Próximo passo"
         onClick={(evento) => {
           avancar();

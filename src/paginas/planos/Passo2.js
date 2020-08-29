@@ -61,9 +61,67 @@ export default function Passo2() {
         >
           <div className="col-6">
             <ListaOas />
+            <nav aria-label="Navegação oas disponíveis para serem selecionados">
+              <ul class="pagination justify-content-end">
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    Anterior
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    1
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    2
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    3
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    Próximo
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
           <div className="col-6">
             <OaSelecionado />
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-end">
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    Anterior
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    1
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    2
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    3
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    Próximo
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </Contexto.Provider>
       </div>

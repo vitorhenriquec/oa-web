@@ -11,17 +11,8 @@ export default function Passo3() {
         type="button"
         className="btn btn-secondary pl-4 pr-4 mb-3"
         title="Auxílio na escrita"
-        data-toggle="modal"
-        data-target="#modalAuxilioEscrita"
-        aria-label="Auxílio na escrita"
       >
-        <div
-          data-container="body"
-          data-toggle="popover"
-          data-content="Clique para ver algumas dicas para auxiliar na escrita."
-        >
-          <i className="fa fa-hands-helping fa-lg"></i> Auxílio na escrita
-        </div>
+        <i className="fa fa-hands-helping fa-lg"></i> Auxílio na escrita
       </button>
       <div className="form-group p-1">
         <label className="font-weight-bold" htmlFor="planoTitulo">

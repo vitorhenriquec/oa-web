@@ -118,16 +118,7 @@ export default function NovoPlano() {
               title="Salvar"
               aria-label="Salvar"
             >
-              <div
-                data-container="body"
-                data-toggle="popover"
-                data-content="Clique aqui para salvar o plano"
-                onClick={(evento) => {
-                  toast.success("Plano salvo com sucesso");
-                }}
-              >
-                <i className="fa fa-save fa-lg"></i> Salvar
-              </div>
+              <i className="fa fa-save fa-lg"></i> Salvar
             </button>
             <button
               type="button"
@@ -135,32 +126,20 @@ export default function NovoPlano() {
               title="Histórico"
               data-toggle="modal"
               data-target="#modalHistorico"
-              aria-label="Histórico do plano"
+              aria-label="Histórico desta versão do plano"
             >
-              <div
-                data-container="body"
-                data-toggle="popover"
-                data-content="Clique para ver histórico do plano."
-              >
-                <i className="fa fa-history fa-lg"></i> Histórico
-              </div>
+              <i className="fa fa-history fa-lg"></i> Histórico
             </button>
             <button
               type="button"
               className="btn btn-secondary rounded pl-4 pr-4 m-1"
-              title="Compartilhar"
+              title="Compartilhar o plano"
               data-toggle="modal"
               data-target="#modalCompartilhar"
-              aria-label="Compartilhar do plano"
+              aria-label="Compartilhar o plano"
             >
-              <div
-                data-container="body"
-                data-toggle="popover"
-                data-content="Clique para poder compartilhar o plano."
-              >
-                <i className="fa fa-share-alt-square fa-lg"></i>
-                Compartilhar
-              </div>
+              <i className="fa fa-share-alt-square fa-lg"></i>
+              Compartilhar
             </button>
             <button
               type="button"
@@ -168,16 +147,10 @@ export default function NovoPlano() {
               title="Enviar para revisão"
               data-toggle="modal"
               data-target="#modalEnviarRevisao"
-              aria-label="Enviar para revisão"
+              aria-label="Enviar o plano para revisão"
             >
-              <div
-                data-container="body"
-                data-toggle="popover"
-                data-content="Clique para enviar esse plano para revisão."
-              >
-                <i className="fa fa-clipboard-check fa-lg"></i> Enviar para
-                Revisão
-              </div>
+              <i className="fa fa-clipboard-check fa-lg"></i> Enviar para
+              Revisão
             </button>
           </div>
         </div>

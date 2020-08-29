@@ -24,6 +24,7 @@ import Login from "./paginas/login/Login";
 import Cadastro from "./paginas/cadastro/Cadastro";
 import ListaUsuarios from "./paginas/usuario/ListaUsuarios";
 import MeusPlanos from "./paginas/planos/MeusPlanos";
+import BuscarPlano from "./paginas/planos/BuscarPlano";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const APP_URL = process.env.REACT_APP_APP_URL;
@@ -153,16 +154,27 @@ function App() {
                 {!usuarioLogado() && (
                   <Route path="/cadastro" exact={true} component={Cadastro} />
                 )}
-                <Route
-                  path="/planoAula/novo"
-                  exact={true}
-                  component={NovoPlano}
-                />
-                <Route
-                  path="/planoAula/meusPlanos"
-                  exact={true}
-                  component={MeusPlanos}
-                />
+                {usuarioLogado() && (
+                  <Route
+                    path="/planoAula/novo"
+                    exact={true}
+                    component={NovoPlano}
+                  />
+                )}
+                {usuarioLogado() && (
+                  <Route
+                    path="/planoAula/meusPlanos"
+                    exact={true}
+                    component={MeusPlanos}
+                  />
+                )}
+                {usuarioLogado() && (
+                  <Route
+                    path="/planoAula/buscar"
+                    exact={true}
+                    component={BuscarPlano}
+                  />
+                )}
               </Switch>
             </div>
             <Rodape />
