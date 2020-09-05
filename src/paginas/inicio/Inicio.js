@@ -14,8 +14,8 @@ export default function Inicio() {
             id="campoBuscaOA"
             type="text"
             className="form-control"
-            placeholder="Digite aqui para pesquisar por um Objeto de Aprendizagem"
-            aria-label="Digite aqui para pesquisar por um Objeto de Aprendizagem"
+            placeholder="Digite aqui para pesquisar por um OA"
+            aria-label="Digite aqui para pesquisar por um OA"
           />
           <button
             type="button"
