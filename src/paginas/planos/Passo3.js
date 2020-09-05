@@ -10,6 +10,8 @@ export default function Passo3() {
       <button
         type="button"
         className="btn btn-secondary pl-4 pr-4 mb-3"
+        data-toggle="modal"
+        data-target="#modalAuxilioEscrita"
         title="Auxílio na escrita"
       >
         <i className="fa fa-hands-helping fa-lg"></i> Auxílio na escrita

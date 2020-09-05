@@ -140,7 +140,7 @@ export default function MeusPlanos() {
                             <button
                               type="button"
                               className="btn btn-dark btn-sm rounded m-1"
-                              title="Edita este plano"
+                              title="Editar este plano"
                             >
                               <i className="fa fa-edit fa-lg"></i>
                             </button>
