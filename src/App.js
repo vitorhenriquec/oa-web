@@ -25,6 +25,8 @@ import Cadastro from "./paginas/cadastro/Cadastro";
 import ListaUsuarios from "./paginas/usuario/ListaUsuarios";
 import MeusPlanos from "./paginas/planos/MeusPlanos";
 import BuscarPlano from "./paginas/planos/BuscarPlano";
+import BuscarOA from "./paginas/objetosAprendizagem/BuscarOA";
+
 
 const API_URL = process.env.REACT_APP_API_URL;
 const APP_URL = process.env.REACT_APP_APP_URL;
@@ -126,6 +128,7 @@ function App() {
                 <Route path="/" exact={true} component={Inicio} />
                 <Route path="/sobre" exact={true} component={Sobre} />
                 <Route path="/equipe" exact={true} component={Equipe} />
+                <Route path="/objetosAprendizagem/busca" exact={true} component={BuscarOA} />
                 <Route
                   path="/publicacoes"
                   exact={true}

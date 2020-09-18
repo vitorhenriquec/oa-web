@@ -41,14 +41,14 @@ export default function MenuLateral(props) {
     {
       denominacao: "OA",
       icone: "fa-puzzle-piece",
-      link: "/oa",
+      link: "/objetosAprendizagem",
       identificador: "manual",
       apenasUsuarioLogado: false,
       subAbas: [
         {
           denominacao: "Buscar",
           icone: "fa-search",
-          link: "/buscar",
+          link: "/busca",
           identificador: "buscar",
         },
         {

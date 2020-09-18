@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./Inicio.css";
 
 export default function Inicio() {
@@ -8,7 +9,7 @@ export default function Inicio() {
         <h1>OA</h1>
         <h6>Objetos de Aprendizagem</h6>
       </div>
-      <form id="buscarOA" className="mt-5">
+      <form id="buscarOA" action="/objetosAprendizagem/busca" method="POST" className="mt-5">
         <div className="form-group d-inline-flex w-100">
           <input
             id="campoBuscaOA"
@@ -27,9 +28,9 @@ export default function Inicio() {
           </button>
         </div>
         <div className="form-group">
-          <a href="/" className="text-primary">
+          <Link to="/objetosAprendizagem/busca" className="text-primary">
             Busca avançada
-          </a>
+          </Link>
         </div>
       </form>
     </div>
